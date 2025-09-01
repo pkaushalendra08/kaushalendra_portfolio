@@ -7,10 +7,15 @@ const Contact = () => {
 
     const sendEmail = (e) => {
         e.preventDefault();
-        
+
     }
-    
-    
+
+    const handleFormSubmit = (FormData) => {
+        const formInputData = Object.fromEntries(FormData.entries());
+        console.log(formInputData)
+    }
+
+
 
     return (
         <section
@@ -18,7 +23,7 @@ const Contact = () => {
             className="flex flex-col justify-center py-16
             px-[12vw] md:px-[7vw] lg:px-[20vw] items-center bg-[#224b89]"
         >
-            
+
             {/*Title */}
             <div className="text-center mb-16">
                 <h2 className="text-4xl font-bold text-white "> Contact</h2>
@@ -33,18 +38,21 @@ const Contact = () => {
                 <h3 className="text-xl font-semibold text-white text-center">
                     Connect with ME!
                 </h3>
-                <form ref={form} onSubmit={sendEmail} className="mt-4 flex flex-col space-y-4">
+                <form
+                    action={handleFormSubmit}
+                    ref={form}
+                    className="mt-4 flex flex-col space-y-4">
                     <input type="email" name='user_email' placeholder="Your Email" required
-                        className="w-full p-3 rounded-md bg-[#131025 text-white border border-gray-600 focus:outline-none focus:border-purple-500]" />
+                        className="w-full p-3 rounded-md bg-[#131025] text-white border border-gray-600 focus:outline-none focus:border-purple-500]" />
 
                     <input type="text" name='user_name' placeholder="Your Name" required
-                        className="w-full p-3 rounded-md bg-[#131025 text-white border border-gray-600 focus:outline-none focus:border-purple-500]" />
+                        className="w-full p-3 rounded-md bg-[#131025] text-white border border-gray-600 focus:outline-none focus:border-purple-500]" />
 
                     <input type="text" name='subject' placeholder="Subject" required
-                        className="w-full p-3 rounded-md bg-[#131025 text-white border border-gray-600 focus:outline-none focus:border-purple-500]" />
+                        className="w-full p-3 rounded-md bg-[#131025] text-white border border-gray-600 focus:outline-none focus:border-purple-500]" />
 
                     <textarea name="message" placeholder="Message" rows="4"
-                        className="w-full p-3 rounded-md bg-[#131025 text-white border border-gray-600 focus:outline-none focus:border-purple-500]"
+                        className="w-full p-3 rounded-md bg-[#131025] text-white border border-gray-600 focus:outline-none focus:border-purple-500]"
                     ></textarea>
 
                     {/* Send Button */}

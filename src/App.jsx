@@ -8,6 +8,7 @@ import Navbar from "./components/Navbar/Navbar"
 import Footer from "./components/Footer/Footer"
 import Project from "./components/Project/Project"
 import BlurBlob from "./components/BlurBlob/BlurBlob";
+import CertificateSection from "./components/Certificate/CertificateSection";
 
 
 const App = () => {
@@ -46,6 +47,7 @@ const App = () => {
         {/* <Experience /> */}
         <Project />
         <Education />
+        <CertificateSection />
         <Contact />
         <Footer />
 

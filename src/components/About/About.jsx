@@ -34,7 +34,7 @@ const About = () => {
                         I’m a passionate Computer Science Engineering student with hands-on experience in building full-stack web applications using the MERN stack. I specialize in crafting responsive and dynamic user interfaces with React and its modern libraries. With a strong foundation in web development, I enjoy turning complex problems into clean, scalable code. I’m constantly exploring new technologies and best practices to build impactful digital experiences. Currently seeking opportunities to apply my skills in real-world projects and grow as a full-stack developer.
                     </p>
                     <a
-                        href="http://drive.google.com"
+                        href="https://drive.google.com/file/d/1eJmYXeb0xxY-g5hzbYwPgu-1uT9gRYL8/view?usp=drivesdk"
                         target='_blank'
                         rel='noopener noreferrer'
                         className='inline-block text-white py-3 px-8 rounded-full mt-5 text-lg font-bold transition duration-300 transform hover:scale-105'

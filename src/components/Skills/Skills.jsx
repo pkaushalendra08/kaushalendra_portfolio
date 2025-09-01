@@ -11,12 +11,12 @@ const skillData = {
     { name: "Tailwind CSS" },
     { name: "BootStrap CSS" },
   ],
-//   Backend: [
-//     { name: "Node.js" },
-//     { name: "Express.js" },
-//     { name: "MongoDB" },
-//     { name: "Mongoose" },
-//   ],
+  Backend: [
+    { name: "Node.js" },
+    { name: "Express.js" },
+    { name: "MongoDB" },
+    { name: "Mongoose" },
+  ],
 //   DevOps: [
 //     { name: "GitHub" },
 //     { name: "Docker" },
