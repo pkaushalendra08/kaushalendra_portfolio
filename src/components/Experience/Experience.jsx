@@ -1,15 +1,17 @@
-import { FaLocationArrow, FaCalendarAlt, FaBriefcase } from "react-icons/fa";
+import { FaLocationArrow, FaCalendarAlt, FaBriefcase, FaFileAlt } from "react-icons/fa";
 
 const Experience = () => {
   const experiences = [
     {
+      id: "exp-001",
       role: "Full Stack Developer Intern",
       company: "YoursCollege",
-      duration: "September 2025 - Presnt ",
+      duration: "September 2025 - October 2025",
       location: "Remote",
-      description: "Developed responsive React components, integrated REST APIs for analytics dashboards, and integrated Laravel backend, and work on admin panel for production.",
-      skills: ["React.js", "Tailwind CSS", "REST APIs", "Git", "Laravel"]
-    }
+      description: "Contributed to the YoursCollege platform and its admin panel, working across frontend and backend modules. Built responsive UIs with React.js, developed APIs using Laravel, and managed data with MySQL. Strengthened skills in full-stack development, admin dashboard design, and frontend-backend integration within an agile environment.",
+      skills: ["React.js", "Tailwind CSS", "REST APIs", "Git", "Laravel"],
+      letterLink: "https://drive.google.com/file/d/1UcZXRd20cpJE54XYsTecsL0d8ZM4DEz4/view?usp=drivesdk"
+    },
   ];
 
   return (
@@ -29,15 +31,15 @@ const Experience = () => {
 
         {/* Experience Items */}
         <div className="space-y-12">
-          {experiences.map((exp, index) => (
-            <div key={index} className="relative flex gap-6 sm:gap-8">
+          {experiences.map((exp) => (
+            <div key={exp.id} className="relative flex gap-6 sm:gap-8">
               {/* Timeline Dot */}
               <div className="relative flex-shrink-0">
                 <div className="w-16 h-16 rounded-full bg-[#8245ec] flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-300">
                   <FaBriefcase className="text-white text-xl" />
                 </div>
                 {/* Connecting Line (only if not last item) */}
-                {index !== experiences.length - 1 && (
+                {exp.id !== experiences[experiences.length - 1].id && (
                   <div className="absolute top-16 left-1/2 transform -translate-x-1/2 w-0.5 h-12 bg-[#8245ec] opacity-30 hidden sm:block" />
                 )}
               </div>
@@ -72,16 +74,29 @@ const Experience = () => {
                 </p>
 
                 {/* Skills Tags */}
-                <div className="flex flex-wrap gap-2">
-                  {exp.skills.map((skill, idx) => (
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {exp.skills.map((skill) => (
                     <span
-                      key={idx}
+                      key={`${exp.id}-${skill}`}
                       className="px-3 py-1 text-xs font-medium rounded-full bg-[#8245ec] text-white border border-[#8245ec] hover:bg-transparent hover:text-[#8245ec] transition-all duration-200 cursor-default"
                     >
                       {skill}
                     </span>
                   ))}
                 </div>
+
+                {/* Experience Letter Link */}
+                {exp.letterLink && (
+                  <a
+                    href={exp.letterLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold rounded-lg bg-[#8245ec] text-white hover:bg-purple-700 transition-all duration-200 hover:shadow-[0_0_15px_#8245ec70]"
+                  >
+                    <FaFileAlt className="text-lg" />
+                    View Experience Letter
+                  </a>
+                )}
               </div>
             </div>
           ))}
