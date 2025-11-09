@@ -1,32 +1,31 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 
-const BlurBlob = ({position, size})=>{
-    const {top, left} = position;
-    const {width, height} = size;
-    return(
-        <div className='absolute'
-        style={{
-            top: top,
-            left:left,
-            height: height,
-            width: width,
-            transform: 'translate(-50%,-50%)', 
-        }}>
-            <div className="w-full h-full bg-purple-500 rounded-full opacity-20 blur-3xl animate-blob"></div>
+const BlurBlob = ({ position, size }) => {
+    const { top, left } = position;
+    const { width, height } = size;
+    return (
+
+        <div className='absolute z-10'
+            style={{
+                top: top,
+                left: left,
+                height: height,
+                width: width,
+                transform: 'translate(-50%,-50%)',
+            }}>
+            <div className="w-full h-full bg-[#c084fc] dark:bg-[#3a3a4a] rounded-full opacity-100 blur-3xl animate-blob"></div>
         </div>
     );
 };
 
-BlurBlob.propTypes ={
+BlurBlob.propTypes = {
     position: PropTypes.shape({
         top: PropTypes.string,
         left: PropTypes.string,
     }),
-    size:PropTypes.shape({
+    size: PropTypes.shape({
         width: PropTypes.string,
         height: PropTypes.string,
-
     }),
 };
 

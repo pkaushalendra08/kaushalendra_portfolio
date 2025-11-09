@@ -5,9 +5,11 @@ import {
   FaLinkedin,
   FaSquareGithub,
   FaRegCircleXmark,
+  FaMoon,
 } from "react-icons/fa6";
+import { CiLight } from "react-icons/ci";
 
-const Navbar = () => {
+const Navbar = ({ theme, toggleTheme }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeItem, setActiveItem] = useState("about");
   const [isScrolled, setIsScrolled] = useState(false);
@@ -21,7 +23,7 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // 🔁 Detect visible section and set activeItem
+  // Detect visible section and set activeItem
   useEffect(() => {
     const sections = document.querySelectorAll("section");
 
@@ -33,7 +35,7 @@ const Navbar = () => {
         }
       },
       {
-        threshold: 0.5, // Trigger when 50% visible
+        threshold: 0.5,
       }
     );
 
@@ -42,15 +44,14 @@ const Navbar = () => {
   }, []);
 
   const handleMenuItemClick = (sectionID) => {
-  setActiveItem(sectionID); // ✅ ensure activeItem updates on click
-  setIsOpen(false); // ✅ closes mobile menu
+    setActiveItem(sectionID);
+    setIsOpen(false);
 
-  const section = document.getElementById(sectionID);
-  if (section) {
-    section.scrollIntoView({ behavior: "smooth" });
-  }
-};
-
+    const section = document.getElementById(sectionID);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   const menuItems = [
     { id: "about", label: "About" },
@@ -61,21 +62,32 @@ const Navbar = () => {
     { id: "contact", label: "Contact" },
   ];
 
+  const ToggleButton = () => (
+    <button
+      onClick={toggleTheme}
+      className="text-gray-300 hover:text-[#8245ec] flex items-center justify-center"
+      aria-label="Toggle theme"
+      title="Toggle theme" 
+    >
+      {theme === "light" ? <FaMoon size={25} /> : <CiLight size={25} />}
+    </button>
+  );
+
   return (
     <nav
-      className={`fixed top-0 w-full z-50 transition duration-300 px-[7vw] md:px-[8vw] lg:px-[20vw] ${
+      className={`fixed top-0 w-full z-50 transition duration-300 px-[7vw] md:px-[8vw] lg:px-[10vw] ${
         isScrolled
           ? "bg-[#050414] bg-opacity-50 backdrop-blur-md shadow-md" //scroll hone k baad
-          : "bg-[#131f2a]" //scroll hone k phle 
+          : "bg-[#131f2a] dark:bg-[#080808]" //scroll hone k phle
       }`}
     >
       <div className="text-white py-5 flex justify-between items-center">
         {/* Logo */}
         <div className="text-lg font-semibold cursor-pointer mr-4">
-          <span className="text-white">&lt;</span>
-          <span className="text-white">Kaushalendra Pratap</span>
-          <span className="text-white"> /</span>
-          <span className="text-white">&gt;</span>
+          <span className="text-white text-2xl">&lt;</span>
+          <span className="text-white text-2xl">Kaushalendra Pratap</span>
+          <span className="text-white text-2xl"> /</span>
+          <span className="text-white text-2xl">&gt;</span>
         </div>
 
         {/* Desktop Menu */}
@@ -84,7 +96,7 @@ const Navbar = () => {
             <li
               key={item.id}
               className={`cursor-pointer hover:text-[#8245ec] ${
-                activeItem === item.id ? "text-[#8245ec]" : ""
+                activeItem === item.id ? "text-[#8245ec] text-2xl" : ""
               }`}
             >
               <button onClick={() => handleMenuItemClick(item.id)}>
@@ -95,31 +107,37 @@ const Navbar = () => {
         </ul>
 
         {/* Socials (Desktop) */}
-        <div className="hidden md:flex space-x-4">
+        <div className="hidden md:flex space-x-4 m-1.5">
           <a
             href="https://github.com/pkaushalendra08"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-300 hover:text-[#8245ec]"
+            title="GitHub" 
           >
-            <FaSquareGithub size={25} />
+            <FaSquareGithub size={30} />
           </a>
           <a
             href="https://www.linkedin.com/in/kaushalendra-pratap-kp08/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-300 hover:text-[#8245ec]"
+            title="LinkedIn"
           >
-            <FaLinkedin size={25} />
+            <FaLinkedin size={30} />
           </a>
           <a
             href="https://x.com/pkaushalendra08"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-300 hover:text-[#8245ec]"
+            title="X (Twitter)"
           >
-            <FaSquareXTwitter size={25} />
+            <FaSquareXTwitter size={30} />
           </a>
+          <div className="ml-5">
+            <ToggleButton />
+          </div>
         </div>
 
         {/* Mobile Toggle */}
@@ -138,7 +156,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* MOBILE MENU */}
       {isOpen && (
         <div className="absolute top-16 left-1/2 transform -translate-x-1/2 w-4/5 bg-[#050414] bg-opacity-50 backdrop-filter backdrop-blur-lg z-50 rounded-lg shadow-lg md:hidden">
           <ul className="flex flex-col items-center space-y-4 py-4 text-gray-300">
@@ -154,12 +172,15 @@ const Navbar = () => {
                 </button>
               </li>
             ))}
-            <div className="flex space-x-4">
+
+            {/* ---Socials --- */}
+            <div className="flex items-center justify-center space-x-6 pt-4 border-t border-gray-700/50 w-full mt-2">
               <a
                 href="https://github.com/pkaushalendra08"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-300 hover:text-[#8245ec]"
+                title="GitHub"
               >
                 <FaSquareGithub size={25} />
               </a>
@@ -168,6 +189,7 @@ const Navbar = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-300 hover:text-[#8245ec]"
+                title="LinkedIn"
               >
                 <FaLinkedin size={25} />
               </a>
@@ -176,9 +198,13 @@ const Navbar = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-300 hover:text-[#8245ec]"
+                title="X (Twitter)"
               >
                 <FaSquareXTwitter size={25} />
               </a>
+
+              
+              <ToggleButton />
             </div>
           </ul>
         </div>

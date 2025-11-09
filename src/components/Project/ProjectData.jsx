@@ -2,10 +2,20 @@ import plan_do from "../Project/snapshots/plan&do.png"
 import dailypulse from "../Project/snapshots/dailypulse.png"
 import geoatlas from "../Project/snapshots/geoatlas.png"
 import airesume from "../Project/snapshots/resume&CV.png"
+import chitchatter from "../Project/snapshots/chitchatter.png"
 
 
 
 const projectData = [
+    {
+        id:5,
+        title: "ChitChatter",
+        description: "ChitChatter is a real-time chat application built with the MERN stack and Socket.io, enabling users to exchange messages instantly through a modern and responsive interface.",
+        snapshot: chitchatter ,
+        live: "https://chit-chatter-app.vercel.app/",
+        github: "https://github.com/pkaushalendra08/ChitChatter",
+        tags:["REACT19","TAILWIND CSS", "Axios", "CONTEXT API", "NODEJS", "EXPRESSJS", "MONGODB", "SOCKET.IO", "MONGOOSE" ]
+    },
     {
         id:1,
         title: "AI based Resume and Cover Letter Generator",

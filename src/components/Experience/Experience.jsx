@@ -15,11 +15,14 @@ const Experience = () => {
   ];
 
   return (
-    <section id="experience" className="py-20 px-[7vw] bg-[#224b89] text-white">
+    <section id="experience" className="py-20 px-[7vw] bg-[#dab7f1] dark:bg-[#141b2c] text-[#3b2e68] dark:text-[#d6ccff]">
       {/* Section Header */}
       <div className="text-center mb-16">
-        <h2 className="text-3xl sm:text-4xl font-bold mb-3">Experience</h2>
-        <p className="text-gray-300 text-sm sm:text-base max-w-2xl mx-auto">
+        <h2 className="text-3xl sm:text-4xl font-bold mb-3 text-[#201f21] dark:text-[#cbb4ff]">
+          Work Experience
+          <div className="w-32 h-1 bg-[#201f21] dark:bg-[#d1d0d6] mx-auto mt-2 rounded"></div>
+          </h2>
+        <p className="text-[#050505] dark:text-[#b6aaf7] text-sm sm:text-base max-w-2xl mx-auto">
           My professional journey and key contributions
         </p>
       </div>
@@ -45,31 +48,31 @@ const Experience = () => {
               </div>
 
               {/* Content Card */}
-              <div className="flex-1 bg-[#1a142f] p-6 rounded-xl shadow-md hover:shadow-[0_0_25px_#8245ec50] transition-all duration-300 hover:scale-[1.02]">
+              <div className="flex-1 bg-[#cdb3f4] dark:bg-[#222741] p-6 rounded-xl shadow-md border hover:shadow-[0_0_25px_#8245ec80] transition-all duration-300 hover:scale-[1.02]">
                 {/* Header: Role & Company */}
                 <div className="mb-4">
-                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-1">
+                  <h3 className="text-xl sm:text-2xl font-bold mb-1 text-[#000000] dark:text-white">
                     {exp.role}
                   </h3>
-                  <p className="text-[#8245ec] font-semibold text-base sm:text-lg">
+                  <p className="text-[#3e25c0] dark:text-[#d1d0d6] font-semibold text-base sm:text-lg">
                     {exp.company}
                   </p>
                 </div>
 
                 {/* Meta Info: Duration & Location */}
-                <div className="flex flex-wrap gap-4 mb-4 text-gray-400 text-sm">
-                  <span className="flex items-center gap-2">
-                    <FaCalendarAlt className="text-[#8245ec]" />
+                <div className="flex flex-wrap gap-4 mb-4 text-[#6c5bbd] dark:text-[#abb0ca] text-sm">
+                  <span className="flex items-center gap-2 text-[#2e2b3c] dark:text-[#d1d0d6]">
+                    <FaCalendarAlt className="text-[#8245ec] " />
                     {exp.duration}
                   </span>
-                  <span className="flex items-center gap-2">
+                  <span className="flex items-center gap-2 text-[#2e2b3c] dark:text-[#d1d0d6]">
                     <FaLocationArrow className="text-[#8245ec]" />
                     {exp.location}
                   </span>
                 </div>
 
                 {/* Description */}
-                <p className="text-gray-300 text-sm sm:text-base leading-relaxed mb-4">
+                <p className="text-[#2e2b3c] dark:text-[#b5b3d5] text-sm sm:text-base leading-relaxed mb-4">
                   {exp.description}
                 </p>
 

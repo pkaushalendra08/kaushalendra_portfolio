@@ -1,5 +1,5 @@
 import { FaLaravel, FaHtml5, FaCss3Alt, FaReact, FaNode, FaGithub , FaDocker, FaBootstrap, FaFigma, FaGitAlt,FaJava  } from "react-icons/fa6";
-import { SiJavascript, SiMongodb, SiExpress, SiRedux, SiTailwindcss, SiMongoose, SiJfrogpipelines, SiPostman, SiKubernetes, SiC, SiCplusplus, SiPython } from "react-icons/si";
+import { SiNextdotjs, SiJavascript, SiMongodb, SiExpress, SiRedux, SiTailwindcss, SiMongoose, SiJfrogpipelines, SiPostman, SiKubernetes, SiC, SiCplusplus, SiPython, SiSocketdotio } from "react-icons/si";
 import { VscVscode } from "react-icons/vsc";
 
 export const SkillIcons = {
@@ -11,6 +11,7 @@ export const SkillIcons = {
   Redux: <SiRedux className="text-[#764ABC]"/>,
   "Tailwind CSS": <SiTailwindcss className="text-[#06B6D4]"/>,
   "BootStrap CSS":<FaBootstrap className="text-[#7952B3]"/> ,
+  NextJS: <SiNextdotjs className="text-[#ffffff]"/>,
   
   //Backend
   "Node.js": <FaNode className="text-[#5FA04E]"/>,
@@ -18,6 +19,7 @@ export const SkillIcons = {
   MongoDB: <SiMongodb className="text-[#47A248]"/>,
   Mongoose: <SiMongoose className="text-[#880000]"/>,
   Laravel: <FaLaravel className="text-white"/>,
+  "Socket.io": <SiSocketdotio className="text-white"/>,
 
   //Devops
   GitHub: <FaGithub className="text-white"/>,
