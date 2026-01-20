@@ -4,8 +4,8 @@ import { MdEmail } from "react-icons/md";
 
 const Footer = () => {
   return (
-   
-    <footer className="relative z-50 bg-[#050414] text-white border-t border-white/10 overflow-hidden pb-52 md:pb-8">
+    
+    <footer className="relative z-50 bg-[#050414] text-white border-t border-white/10 overflow-hidden pb-16 md:pb-8">
       
       {/* Background Glow */}
       
@@ -37,7 +37,7 @@ const Footer = () => {
         {/* 3. Copyright */}
         <div className="w-full border-t border-white/5 mt-2 pt-3 text-center">
           <p className="text-[10px] text-gray-600 uppercase tracking-[0.2em]">
-            © {new Date().getFullYear()} Designed & Built by <span className="text-purple-500 font-bold">Kaushalendra Pratap</span> 
+            © {new Date().getFullYear()} Designed & Built by <span className="text-purple-500 font-bold whitespace-nowrap">Kaushalendra Pratap</span> 
           </p>
         </div>
 
