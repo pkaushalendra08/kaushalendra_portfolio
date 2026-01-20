@@ -1,115 +1,148 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useCallback, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { motion, useInView } from "framer-motion";
 import { FaGithub } from "react-icons/fa6";
-import { BsBoxArrowUpRight } from "react-icons/bs";
 import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
 import { Button } from "@/components/ui/button";
 import projectData from "./ProjectData";
+import ProjectModal from "@/components/Project/ProjectModal";
 
 const Projects = () => {
   const [showAll, setShowAll] = useState(false);
+  const [selectedProject, setSelectedProject] = useState(null);
+  const sectionRef = useRef(null);
+
   const visibleProjects = showAll ? projectData : projectData.slice(0, 3);
 
+  // Animation hooks
+  const containerRef = useRef(null);
+  const isInView = useInView(containerRef, { once: true });
+
+  const scrollToSectionTop = useCallback(() => {
+    if (sectionRef.current) {
+      const y = sectionRef.current.getBoundingClientRect().top + window.scrollY - 100;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
+  }, []);
+
+  const handleToggleProjects = useCallback((e) => {
+    e.preventDefault();
+    if (showAll) {
+      setShowAll(false);
+      requestAnimationFrame(() => scrollToSectionTop());
+    } else {
+      setShowAll(true);
+    }
+  }, [showAll, scrollToSectionTop]);
+
   return (
-    <section id="project" className="py-25 px-4 md:px-8">
-      {/* Section Title */}
-      <h2 className="text-3xl sm:text-5xl font-bold mb-8 text-center text-neutral-800 dark:text-neutral-200">
-        My Projects
-        <div className="w-24 h-1 bg-purple-500 mx-auto mt-4 rounded-full"></div>
-      </h2>
+    <section 
+        id="project" 
+        ref={sectionRef} 
+        className="py-20 px-4 sm:px-6 md:px-8 bg-transparent overflow-hidden"
+    >
 
-      {/* The Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto h-full">
+      {/* Title Section */}
+      {/* FIXED: Reduced mb-12 to mb-8 to fix large gap */}
+      <div ref={containerRef} className="max-w-7xl mx-auto mb-8 md:mb-12 relative z-10 w-full">
+        <div className="text-center max-w-3xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.5 }}
+          >
+            <h2 className="text-3xl sm:text-5xl font-bold mb-6 text-center text-neutral-800 dark:text-neutral-200">
+              My Projects
+              <div className="w-24 h-1.5 bg-purple-500 mx-auto mt-4 rounded-full"></div>
+            </h2>
+            <p className="text-base sm:text-xl font-medium mb-2 text-center text-neutral-600 dark:text-neutral-400">
+              A showcase of my technical projects, applications, and coding experiments.
+            </p>
+          </motion.div>
+        </div>
+      </div>
+
+      
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-8 max-w-7xl mx-auto">
         {visibleProjects.map((project) => (
-          <CardContainer key={project.id || project.title} className="inter-var">
-            <CardBody
-              className="bg-gray-50 relative group/card dark:hover:shadow-2xl 
-                          dark:hover:shadow-emerald-500/10
-                         dark:bg-black dark:border-white/20 border-black/10
-                          w-[90vw] sm:w-[24rem] h-160 rounded-xl p-6 border flex flex-col
-                          transition-transform duration-200
-                          hover:-translate-y-1 hover:shadow-xl
-                          active:scale-95 active:translate-y-0"
-            >
-
-              <CardItem
-                translateZ="60"
-                className="w-full h-16 flex items-center justify-center text-xl font-bold text-neutral-600 dark:text-white text-center leading-tight mb-2"
-              >
+          <CardContainer key={project.id} className="inter-var w-full h-full" containerClassName="py-1 md:py-2">
+            <CardBody className="bg-gray-50 dark:bg-black relative group/card dark:hover:shadow-2xl dark:hover:shadow-purple-500/20 dark:border-white/20 border-black/10 w-full h-auto rounded-xl p-6 border flex flex-col">
+              
+              <CardItem translateZ="50" className="text-xl font-bold text-neutral-700 dark:text-white w-full text-center">
                 {project.title}
               </CardItem>
-              <CardItem translateZ="100" className="w-full">
-                <div className="relative w-full h-48 rounded-xl group-hover/card:shadow-xl overflow-hidden border border-transparent dark:border-white/10">
-                  <Image
-                    src={project.snapshot}
-                    fill
-                    className="object-cover"
-                    alt={project.title}
-                  />
-                </div>
-              </CardItem>
 
-              <CardItem
-                as="p"
-                translateZ="70"
-                className="text-[#131314] dark:text-[#b5b3d5] text-sm mb-4 mt-4"
-              >
+              {/* Description */}
+              <CardItem as="p" translateZ="60" className="text-neutral-500 text-sm max-w-sm mt-3 mb-3 dark:text-neutral-300 line-clamp-3 text-center mx-auto">
                 {project.description}
               </CardItem>
 
-              <CardItem translateZ="50" className="flex flex-wrap gap-2 mb-4">
-                {project.tags?.map((tag, idx) => (
-                  <span
-                    key={idx}
-                    className="px-2 py-1 text-[10px] font-semibold text-purple-600 bg-purple-100 rounded-md dark:bg-purple-900/20 dark:text-purple-300"
-                  >
-                    {tag}
-                  </span>
-                ))}
+              {/* Image  */}
+              <CardItem translateZ="100" className="w-full mt-6 mb-4 flex-1">
+                <div
+                  onClick={() => setSelectedProject(project)}
+                  className="relative w-full h-48 rounded-xl group-hover/card:shadow-xl overflow-hidden cursor-pointer"
+                >
+                  <Image
+                    src={project.snapshot}
+                    fill
+                    className="object-cover group-hover/card:scale-105 transition-transform duration-500"
+                    alt={project.title}
+                  />
+                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <span className="text-white font-medium bg-black/50 px-4 py-2 rounded-full backdrop-blur-sm border border-white/20 text-sm">
+                      View Details
+                    </span>
+                  </div>
+                </div>
               </CardItem>
 
-              <div className="flex justify-between items-center mt-auto w-full pt-4">
+              {/* Actions */}
+              <div className="flex justify-between items-center mt-6">
                 <CardItem
-                  translateZ={30}
-                  as={Link}
-                  href={project.live}
-                  target="__blank"
-                  className="px-4 py-2 rounded-xl text-xs font-normal dark:text-white hover:underline"
-                >
-                  <div className="flex items-center gap-2">
-                    <BsBoxArrowUpRight /> Live Demo
-                  </div>
-                </CardItem>
-
-                <CardItem
-                  translateZ={30}
+                  translateZ={20}
                   as="button"
-                  className="px-4 py-2 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold"
+                  onClick={() => setSelectedProject(project)}
+                  className="px-4 py-2 rounded-xl text-xs font-normal dark:text-white hover:bg-neutral-100 dark:hover:bg-neutral-800 transition active:scale-95"
                 >
-                  <Link href={project.github} target="_blank" className="flex items-center gap-2">
-                    <FaGithub /> GitHub
-                  </Link>
+                  View Details →
+                </CardItem>
+                <CardItem
+                  translateZ={20}
+                  as={Link}
+                  href={project.github}
+                  target="_blank"
+                  className="px-4 py-2 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold flex items-center gap-2 active:scale-95 transition-transform"
+                >
+                  <FaGithub size={14} /> GitHub
                 </CardItem>
               </div>
-
             </CardBody>
           </CardContainer>
         ))}
       </div>
 
-      {/* View More Button  */}
-      {!showAll && projectData.length > 3 && (
-        <div className="mt-8 text-center">
+      {/* View More Button */}
+      {projectData.length > 3 && (
+        <div className="mt-12 text-center">
           <Button
-            onClick={() => setShowAll(true)}
-            className="px-8 py-6 rounded-full text-md font-semibold bg-linear-to-r from-purple-500 to-blue-500 hover:scale-105 transition-transform"
+            onClick={handleToggleProjects}
+            className="px-8 py-6 rounded-full text-md font-semibold bg-linear-to-r from-purple-500 to-blue-500 hover:scale-105 transition-transform shadow-lg shadow-purple-500/25"
           >
-            View All Projects
+            {showAll ? "View Less" : "View All Projects"}
           </Button>
         </div>
+      )}
+
+      {/* Modal - Render conditionally */}
+      {selectedProject && (
+        <ProjectModal
+          project={selectedProject}
+          onClose={() => setSelectedProject(null)}
+        />
       )}
     </section>
   );

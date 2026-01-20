@@ -148,3 +148,37 @@
     }
   }
 }
+
+
+/* Mobile Fullscreen Modal */
+@supports (height: 100dvh) {
+  .mobile-fullscreen {
+    height: 100dvh;
+  }
+}
+
+@supports not (height: 100dvh) {
+  .mobile-fullscreen {
+    height: 100vh;
+  }
+}
+
+/* Custom Scrollbar */
+.overflow-y-auto::-webkit-scrollbar {
+  width: 6px;
+}
+
+.overflow-y-auto::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.overflow-y-auto::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.2);
+  border-radius: 3px;
+}
+
+.dark .overflow-y-auto::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.2);
+}
+
+

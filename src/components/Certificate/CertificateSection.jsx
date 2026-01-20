@@ -1,83 +1,218 @@
 "use client";
-import React, { useState } from 'react';
-import certificates from './CertificateData';
+
+import React, { useState, useEffect, useCallback } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { FaAward, FaExternalLinkAlt, FaChevronLeft, FaChevronRight, FaCalendarAlt } from "react-icons/fa";
+import { CheckCircle2 } from "lucide-react";
+import certificates from "./CertificateData";
 
 const CertificateSection = () => {
-  const [isPaused, setIsPaused] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [direction, setDirection] = useState(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
-  const handleViewClick = (url) => {
-    window.open(url, '_blank', 'noopener,noreferrer');
+  // --- NAVIGATION LOGIC ---
+  const nextSlide = useCallback(() => {
+    setDirection(1);
+    setCurrentIndex((prev) => (prev + 1 === certificates.length ? 0 : prev + 1));
+  }, []);
+
+  const prevSlide = useCallback(() => {
+    setDirection(-1);
+    setCurrentIndex((prev) => (prev === 0 ? certificates.length - 1 : prev - 1));
+  }, []);
+
+  // --- AUTO PLAY ---
+  useEffect(() => {
+    if (!isAutoPlaying) return;
+    const interval = setInterval(() => {
+      nextSlide();
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [isAutoPlaying, nextSlide]);
+
+  // Animation Variants
+  const variants = {
+    enter: (direction) => ({
+      x: direction > 0 ? 50 : -50,
+      opacity: 0,
+      scale: 0.95,
+    }),
+    center: {
+      zIndex: 1,
+      x: 0,
+      opacity: 1,
+      scale: 1,
+    },
+    exit: (direction) => ({
+      zIndex: 0,
+      x: direction < 0 ? 50 : -50,
+      opacity: 0,
+      scale: 0.95,
+    }),
   };
 
+  const currentCert = certificates[currentIndex];
+
   return (
-    <section id="certificate" className="py-20 md:py-25 text-[#3b2e68] dark:text-[#d6ccff] font-inter">
-      <div className="container mx-auto px-4 md:px-8">
-        <h2 className="text-3xl sm:text-5xl font-bold mb-8 text-center text-neutral-800 dark:text-neutral-200">
-          My Certificates
-          <div className="w-24 h-1 bg-purple-500 mx-auto mt-4 rounded-full"></div>
-        </h2>
+    <section id="certificates" className="py-20 px-4 md:px-8 bg-transparent w-full overflow-hidden">
+      <div className="max-w-7xl mx-auto">
 
-        <style>
-          {`
-            @keyframes scroll-left {
-              0% {
-                transform: translateX(0%);
-              }
-              100% {
-                transform: translateX(-100%);
-              }
-            }
-            .animate-scroll {
-              animation: scroll-left 30s linear infinite;
-            }
-            .animate-scroll.paused {
-              animation-play-state: paused;
-            }
-            .certificate-container:hover .animate-scroll {
-              animation-play-state: paused;
-            }
-          `}
-        </style>
-
-        <div
-          className="relative w-full overflow-hidden py-4 rounded-xl shadow-lg bg-[#cdb3f4] dark:bg-[#161924]"
-          onMouseEnter={() => setIsPaused(true)}
-          onMouseLeave={() => setIsPaused(false)}
-        >
-          <div className="px-4">
-            <div
-              className={`flex flex-nowrap certificate-container ${isPaused ? 'paused' : 'animate-scroll'}`}
-            >
-              {certificates.concat(certificates).map((certificate, index) => (
-                <div
-                  key={`${certificate.id}-${index}`}
-                  className="flex-none w-80 md:w-96 p-4 mx-2 bg-[#b59ef7] dark:bg-[#1e1e2e] rounded-xl shadow-xl transform transition duration-300 hover:scale-105 flex flex-col border-2 border-[#8a6efb]"
-                >
-                  <img
-                    src={certificate.imageUrl}
-                    alt={certificate.name}
-                    className="w-full h-48 object-cover rounded-lg mb-4 border border-[#a392dc]"
-                  />
-                  <div className="grow">
-                    <h3 className="text-xl font-bold mb-2 text-[#131213] dark:text-[#9990c2]">{certificate.name}</h3>
-                    <p className="text-sm text-[#0b0b0c] dark:text-[#c5b9ff] mb-1">
-                      <span className="font-semibold">Issuer:</span> {certificate.issuer}
-                    </p>
-                    <p className="text-sm text-[#0b0b0c] dark:text-[#c5b9ff] mb-4">
-                      <span className="font-semibold">Date:</span> {certificate.date}
-                    </p>
-                  </div>
-                  <button
-                    onClick={() => handleViewClick(certificate.viewUrl)}
-                    className="w-full py-2 px-4 bg-linear-to-r from-[#6335b3] to-[#4fc3f7] text-white font-semibold rounded-lg shadow-md hover:from-[#6a30e8] hover:to-[#36b2ee] focus:outline-none focus:ring-2 focus:ring-[#8245ec] focus:ring-opacity-75 transition duration-300 mt-auto"
-                  >
-                    View Certificate
-                  </button>
-                </div>
-              ))}
-            </div>
-          </div>
+        {/* Title */}
+        <div className="text-center mb-12 md:mb-16">
+          <h2 className="text-3xl md:text-5xl font-bold mb-4 text-neutral-900 dark:text-white">
+            My Certifications
+          </h2>
+          <div className="w-24 h-1.5 bg-purple-500 mx-auto rounded-full mb-4" />
+          <p className="text-neutral-600 dark:text-neutral-400">
+            Verified credentials and continuous professional growth.
+          </p>
         </div>
+
+        {/* --- MAIN SLIDER CONTAINER --- */}
+        <div
+          className="relative w-full max-w-5xl mx-auto min-h-[520px] md:min-h-[450px] flex flex-col"
+          onMouseEnter={() => setIsAutoPlaying(false)}
+          onMouseLeave={() => setIsAutoPlaying(true)}
+        >
+
+          {/* Desktop Navigation Buttons */}
+          <div className="absolute top-1/2 -translate-y-1/2 -left-4 md:-left-16 z-20 hidden md:block">
+            <button onClick={prevSlide} className="p-4 rounded-full bg-white dark:bg-neutral-800 shadow-xl hover:scale-110 transition-transform text-neutral-600 dark:text-white border border-neutral-200 dark:border-white/10 group">
+              <FaChevronLeft className="group-hover:-translate-x-0.5 transition-transform" />
+            </button>
+          </div>
+          <div className="absolute top-1/2 -translate-y-1/2 -right-4 md:-right-16 z-20 hidden md:block">
+            <button onClick={nextSlide} className="p-4 rounded-full bg-white dark:bg-neutral-800 shadow-xl hover:scale-110 transition-transform text-neutral-600 dark:text-white border border-neutral-200 dark:border-white/10 group">
+              <FaChevronRight className="group-hover:translate-x-0.5 transition-transform" />
+            </button>
+          </div>
+
+          {/* THE CARD */}
+          <div className="relative w-full flex-1 rounded-3xl bg-white dark:bg-[#0f0f0f] border border-neutral-200 dark:border-white/10 shadow-2xl overflow-hidden">
+            <AnimatePresence initial={false} custom={direction} mode="wait">
+              <motion.div
+                key={currentIndex}
+                custom={direction}
+                variants={variants}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                transition={{
+                  x: { type: "spring", stiffness: 300, damping: 30 },
+                  opacity: { duration: 0.3 },
+                }}
+                className="absolute inset-0 w-full h-full flex flex-col md:flex-row"
+              >
+
+
+                {/* --- LEFT SIDE: DETAILS --- */}
+                <div className="w-full md:w-[40%] flex-1 p-6 md:p-10 flex flex-col order-2 md:order-1 relative bg-white dark:bg-[#0f0f0f] md:border-r border-neutral-200 dark:border-white/10">
+
+                  {/* Background Decoration */}
+                  <div className="absolute top-0 left-0 w-32 h-32 bg-purple-500/5 rounded-br-full z-0 pointer-events-none" />
+
+                  {/* FIX: Added 'h-full flex flex-col' here to make layout rigid */}
+                  <div className="relative z-10 flex flex-col h-full">
+
+                    {/* --- TOP SECTION (Fixed at Top) --- */}
+                    <div>
+                      {/* Issued By */}
+                      <div className="mb-4">
+                        <span className="block text-purple-600 dark:text-purple-400 font-black tracking-widest uppercase text-[10px] mb-1.5 ml-0.5">
+                          Issued By
+                        </span>
+                        <div className="flex items-center gap-2 text-lg md:text-xl font-bold text-neutral-800 dark:text-neutral-200">
+                          <CheckCircle2 size={20} className="text-purple-500 shrink-0" />
+                          {currentCert.issuer}
+                        </div>
+                      </div>
+
+                      {/* Title */}
+                      <h3 className="text-2xl md:text-3xl font-black text-neutral-900 dark:text-white mb-3 leading-tight h-18 md:h-auto line-clamp-2 md:line-clamp-none">
+                        {currentCert.name}
+                      </h3>
+
+                      {/* Date */}
+                      <div className="flex items-center gap-2 text-xs text-neutral-500 font-medium mb-6">
+                        <FaCalendarAlt className="text-neutral-400" />
+                        <span>Issued on {currentCert.date}</span>
+                      </div>
+
+                      {/* Description */}
+                      <p className="hidden md:block text-neutral-600 dark:text-neutral-300 text-sm leading-relaxed border-l-2 border-purple-100 dark:border-white/10 pl-4 line-clamp-3">
+                        {currentCert.description || "Verified certification demonstrating technical proficiency."}
+                      </p>
+                    </div>
+
+                    {/* --- BOTTOM SECTION (Fixed at Bottom) --- */}
+                    {/* 'mt-auto' pushes this div to the very bottom */}
+                    <div className="mt-auto pt-6 flex flex-col sm:flex-row gap-4">
+                      <a
+                        href={currentCert.link}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-neutral-900 dark:bg-white text-white dark:text-black rounded-xl font-bold text-sm hover:opacity-80 transition-opacity shadow-lg"
+                      >
+                        View Credential <FaExternalLinkAlt size={12} />
+                      </a>
+                    </div>
+
+                  </div>
+                </div>
+                {/* --- RIGHT SIDE: IMAGE --- */}
+
+                <div className="w-full md:w-[60%] h-[280px] md:h-auto bg-neutral-100 dark:bg-neutral-900 relative overflow-hidden order-1 md:order-2 group">
+                  <img
+                    src={currentCert.image}
+                    alt={currentCert.name}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+
+                  {/* Gradient Overlay */}
+                  <div
+                    className="absolute inset-0 opacity-60 pointer-events-none"
+                    style={{
+                      background: "linear-gradient(to top, rgba(0,0,0,0.6), transparent)"
+                    }}
+                  />
+
+                  {/* Badge Overlay */}
+                  <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-md p-2 rounded-full shadow-lg z-10">
+                    <FaAward className="text-purple-600 text-xl" />
+                  </div>
+                </div>
+
+              </motion.div>
+            </AnimatePresence>
+          </div>
+
+          {/* Dots Indicator */}
+          <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 flex gap-2">
+            {certificates.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => {
+                  setDirection(idx > currentIndex ? 1 : -1);
+                  setCurrentIndex(idx);
+                }}
+                className={`h-1.5 rounded-full transition-all duration-300 ${idx === currentIndex ? "w-8 bg-purple-500" : "w-2 bg-neutral-300 dark:bg-neutral-700 hover:bg-neutral-400"}`}
+              />
+            ))}
+          </div>
+
+          {/* Mobile Only: Navigation Buttons Bottom */}
+          <div className="flex justify-between md:hidden mt-6 px-1">
+            <button onClick={prevSlide} className="flex items-center gap-2 text-sm font-bold text-neutral-500 active:text-purple-500">
+              <FaChevronLeft /> Prev
+            </button>
+            <button onClick={nextSlide} className="flex items-center gap-2 text-sm font-bold text-neutral-500 active:text-purple-500">
+              Next <FaChevronRight />
+            </button>
+          </div>
+
+        </div>
+
       </div>
     </section>
   );

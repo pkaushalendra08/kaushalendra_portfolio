@@ -3,26 +3,22 @@
 import { useEffect, useState } from "react";
 import {
   FaBars,
-  FaSquareXTwitter,
-  FaLinkedin,
-  FaSquareGithub,
+  FaXTwitter,
+  FaLinkedinIn,
+  FaGithub,
   FaRegCircleXmark,
-  FaMoon,
 } from "react-icons/fa6";
-import { ModeToggle } from "../ModeToggle/ModeToggle";
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from "@/components/ui/tooltip"
-
+} from "@/components/ui/tooltip";
 
 const Navbar = ({ theme, toggleTheme }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeItem, setActiveItem] = useState("about");
   const [isScrolled, setIsScrolled] = useState(false);
 
-  // Detect scroll for background blur
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
@@ -31,10 +27,8 @@ const Navbar = ({ theme, toggleTheme }) => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Detect visible section and set activeItem
   useEffect(() => {
     const sections = document.querySelectorAll("section");
-
     const observer = new IntersectionObserver(
       (entries) => {
         const visibleEntry = entries.find((entry) => entry.isIntersecting);
@@ -42,9 +36,7 @@ const Navbar = ({ theme, toggleTheme }) => {
           setActiveItem(visibleEntry.target.id);
         }
       },
-      {
-        threshold: 0.5,
-      }
+      { threshold: 0.5 }
     );
 
     sections.forEach((section) => observer.observe(section));
@@ -54,7 +46,6 @@ const Navbar = ({ theme, toggleTheme }) => {
   const handleMenuItemClick = (sectionID) => {
     setActiveItem(sectionID);
     setIsOpen(false);
-
     const section = document.getElementById(sectionID);
     if (section) {
       section.scrollIntoView({ behavior: "smooth" });
@@ -71,31 +62,44 @@ const Navbar = ({ theme, toggleTheme }) => {
     { id: "contact", label: "Contact" },
   ];
 
+  // UPDATED: SocialLink now accepts a specific 'hoverColor' class
+  const SocialLink = ({ href, icon: Icon, hoverColorClass }) => (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`flex items-center justify-center w-10 h-10 rounded-full bg-white/10 text-gray-300 transition-all duration-300 hover:text-white hover:-translate-y-1 ${hoverColorClass}`}
+    >
+      <Icon size={18} />
+    </a>
+  );
+
   return (
     <nav
-      className={`fixed top-0 w-full z-50 transition duration-300 px-[4vw] md:px-[3vw] lg:px-[4vw] ${isScrolled
-        ? "bg-[#3c3c3f] bg-opacity-50 backdrop-blur-md shadow-md" //scroll hone k baad
-        : "dark:bg-[#201f1f]" //scroll hone k phle
-        }`}
+      className={`fixed top-0 w-full z-50 transition-all duration-300 px-4 sm:px-6 md:px-10 ${
+        isScrolled
+          ? "bg-[#3c3c3f]/50 backdrop-blur-md shadow-md py-3"
+          : "dark:bg-[#201f1f] py-5"
+      }`}
     >
-      <div className="text-white py-5 flex justify-between items-center">
-        {/* Name */}
-        <div className="text-lg font-semibold cursor-pointer mr-4 whitespace-nowrap">
-          <span className="text-white text-xl md:text-2xl">&lt;</span>
-          <span className="text-white text-xl md:text-2xl">Kaushalendra Pratap</span>
-          <span className="text-white text-xl md:text-2xl">/</span>
-          <span className="text-white text-xl md:text-2xl">&gt;</span>
+      <div className="max-w-7xl mx-auto flex justify-between items-center">
+        <div className="shrink-0 text-base sm:text-lg md:text-xl font-semibold cursor-pointer whitespace-nowrap text-white">
+          <span>&lt;</span>
+          <span>Kaushalendra Pratap</span>
+          <span>/</span>
+          <span>&gt;</span>
         </div>
 
         {/* Desktop Menu */}
-        <ul className="hidden md:flex space-x-9 text-gray-300">
+        <ul className="hidden lg:flex space-x-6 xl:space-x-9 text-gray-300 items-center">
           {menuItems.map((item) => (
             <li
               key={item.id}
-              className={`cursor-pointer hover:text-[#8245ec] ${activeItem === item.id ? "text-[#8245ec] text-2xl" : ""
-                }`}
+              className={`cursor-pointer hover:text-[#8245ec] transition-colors ${
+                activeItem === item.id ? "text-[#8245ec] font-bold" : ""
+              }`}
             >
-              <button onClick={() => handleMenuItemClick(item.id)}>
+              <button onClick={() => handleMenuItemClick(item.id)} className="text-sm xl:text-base">
                 {item.label}
               </button>
             </li>
@@ -103,126 +107,86 @@ const Navbar = ({ theme, toggleTheme }) => {
         </ul>
 
         {/* Socials (Desktop) */}
-        <div className="hidden md:flex space-x-4 m-1.5">
+        <div className="hidden md:flex items-center space-x-3">
           <Tooltip>
             <TooltipTrigger asChild>
-              <a
-                href="https://github.com/pkaushalendra08"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-300 hover:text-[#8245ec]"
-              >
-                <FaSquareGithub size={30} />
-              </a>
+              <span>
+                <SocialLink 
+                  href="https://github.com/pkaushalendra08" 
+                  icon={FaGithub} 
+                  hoverColorClass="hover:bg-[#181717]" // GitHub Black
+                />
+              </span>
             </TooltipTrigger>
-            <TooltipContent>
-              <p>Github</p>
-            </TooltipContent>
+            <TooltipContent><p>Github</p></TooltipContent>
           </Tooltip>
-
 
           <Tooltip>
             <TooltipTrigger asChild>
-              <a
-                href="https://www.linkedin.com/in/kaushalendra-pratap-kp08/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-300 hover:text-[#8245ec]"
-              >
-                <FaLinkedin size={30} />
-              </a>
+              <span>
+                <SocialLink 
+                  href="https://www.linkedin.com/in/kaushalendra-pratap-kp08/" 
+                  icon={FaLinkedinIn} 
+                  hoverColorClass="hover:bg-[#0A66C2]" // LinkedIn Blue
+                />
+              </span>
             </TooltipTrigger>
-            <TooltipContent>
-              <p>LinkedIn</p>
-            </TooltipContent>
+            <TooltipContent><p>LinkedIn</p></TooltipContent>
           </Tooltip>
-
 
           <Tooltip>
             <TooltipTrigger asChild>
-              <a
-                href="https://x.com/pkaushalendra08"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-300 hover:text-[#8245ec]"
-              >
-                <FaSquareXTwitter size={30} />
-              </a>
+              <span>
+                <SocialLink 
+                  href="https://x.com/pkaushalendra08" 
+                  icon={FaXTwitter} 
+                  hoverColorClass="hover:bg-[#000000]" // X Black
+                />
+              </span>
             </TooltipTrigger>
-            <TooltipContent>
-              <p>X(Twitter)</p>
-            </TooltipContent>
+            <TooltipContent><p>X(Twitter)</p></TooltipContent>
           </Tooltip>
-
-          <div className="ml-5">
-            {/* <ModeToggle /> */}
-          </div>
         </div>
 
         {/* Mobile Toggle */}
-        <div className="md:hidden">
+        <div className="lg:hidden flex items-center">
           {isOpen ? (
-            <FaRegCircleXmark
-              className="text-3xl text-[#8245ec] cursor-pointer"
-              onClick={() => setIsOpen(false)}
-            />
+            <FaRegCircleXmark className="text-3xl text-[#8245ec] cursor-pointer" onClick={() => setIsOpen(false)} />
           ) : (
-            <FaBars
-              className="text-3xl text-[#8245ec] cursor-pointer"
-              onClick={() => setIsOpen(true)}
-            />
+            <FaBars className="text-3xl text-[#8245ec] cursor-pointer" onClick={() => setIsOpen(true)} />
           )}
         </div>
       </div>
 
       {/* MOBILE MENU */}
       {isOpen && (
-        <div className="absolute top-16 left-1/2 transform -translate-x-1/2 w-4/5 bg-[#050414] bg-opacity-50 backdrop-filter backdrop-blur-lg z-50 rounded-lg shadow-lg md:hidden">
-          <ul className="flex flex-col items-center space-y-4 py-4 text-gray-300">
+        <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-[90%] mt-2 bg-[#050414]/90 backdrop-blur-xl z-50 rounded-2xl shadow-2xl border border-white/10 lg:hidden overflow-hidden">
+          <ul className="flex flex-col items-center space-y-5 py-8 text-gray-300">
             {menuItems.map((item) => (
               <li
                 key={item.id}
-                className={`cursor-pointer hover:text-white ${activeItem === item.id ? "text-[#8245ec]" : ""
-                  }`}
+                className={`text-lg transition-colors ${activeItem === item.id ? "text-[#8245ec] font-bold" : "hover:text-white"}`}
               >
-                <button onClick={() => handleMenuItemClick(item.id)}>
-                  {item.label}
-                </button>
+                <button onClick={() => handleMenuItemClick(item.id)}>{item.label}</button>
               </li>
             ))}
 
-            {/* ---Socials --- */}
-            <div className="flex items-center justify-center space-x-6 pt-4 border-t border-gray-700/50 w-full mt-2">
-              <a
-                href="https://github.com/pkaushalendra08"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-300 hover:text-[#8245ec]"
-                title="GitHub"
-              >
-                <FaSquareGithub size={25} />
-              </a>
-              <a
-                href="https://www.linkedin.com/in/kaushalendra-pratap-kp08/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-300 hover:text-[#8245ec]"
-                title="LinkedIn"
-              >
-                <FaLinkedin size={25} />
-              </a>
-              <a
-                href="https://x.com/pkaushalendra08"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-300 hover:text-[#8245ec]"
-                title="X (Twitter)"
-              >
-                <FaSquareXTwitter size={25} />
-              </a>
-
-
-              {/* <ModeToggle /> */}
+            <div className="flex items-center justify-center space-x-6 pt-6 border-t border-gray-700/50 w-full px-10">
+              <SocialLink 
+                href="https://github.com/pkaushalendra08" 
+                icon={FaGithub} 
+                hoverColorClass="hover:bg-[#181717]" 
+              />
+              <SocialLink 
+                href="https://www.linkedin.com/in/kaushalendra-pratap-kp08/" 
+                icon={FaLinkedinIn} 
+                hoverColorClass="hover:bg-[#0A66C2]" 
+              />
+              <SocialLink 
+                href="https://x.com/pkaushalendra08" 
+                icon={FaXTwitter} 
+                hoverColorClass="hover:bg-[#000000]" 
+              />
             </div>
           </ul>
         </div>

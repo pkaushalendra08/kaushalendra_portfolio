@@ -1,11 +1,16 @@
 "use client";
 
+import { useRef } from "react";
 import { FaCalendarAlt, FaBriefcase, FaFileAlt } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
+import { motion, useInView } from "framer-motion";
 
 const Experience = () => {
-  const experiences = [
   
+  const containerRef = useRef(null);
+  const isInView = useInView(containerRef, { once: true });
+
+  const experiences = [
     {
       id: "exp-002",
       role: "Full Stack Developer Intern",
@@ -19,73 +24,81 @@ const Experience = () => {
   ];
 
   return (
-    <section id="experience" className="py-20 px-[7vw] text-[#3b2e68] dark:text-[#d6ccff]">
-      {/* Section Header */}
-      <div className="text-center mb-16">
-        <h2 className="text-3xl sm:text-5xl font-bold mb-8 text-center text-neutral-800 dark:text-neutral-200">
-          My Work Experiences
-          <div className="w-24 h-1 bg-purple-500 mx-auto mt-4 rounded-full"></div>
-        </h2>
-        <p className="text-base sm:text-xl font-bold mb-2 text-center text-neutral-800 dark:text-neutral-200">
-          My professional journey and key contributions
-        </p>
+    <section id="experience" className="py-20 px-4 sm:px-6 md:px-8 text-[#3b2e68] dark:text-[#d6ccff] overflow-hidden">
+      
+      {/* Title Section */}
+      <div ref={containerRef} className="max-w-7xl mx-auto mb-16 relative z-10 w-full">
+        <div className="text-center max-w-3xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.5 }}
+          >
+            <h2 className="text-3xl sm:text-5xl font-bold mb-6 text-center text-neutral-800 dark:text-neutral-200">
+              My Work Experiences
+              <div className="w-24 h-1.5 bg-purple-500 mx-auto mt-4 rounded-full"></div>
+            </h2>
+            <p className="text-base sm:text-xl font-medium mb-2 text-center text-neutral-600 dark:text-neutral-400">
+              My professional journey and key contributions
+            </p>
+          </motion.div>
+        </div>
       </div>
 
       {/* Timeline Container */}
       <div className="relative max-w-4xl mx-auto">
-        {/* Vertical Line */}
-        <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-[#8245ec] opacity-30 hidden sm:block" />
+        
+        {/* Main Vertical Line */}
+        <div className="absolute left-6 sm:left-8 top-0 bottom-0 w-0.5 bg-[#8245ec] opacity-30 transform -translate-x-1/2" />
 
         {/* Experience Items */}
         <div className="space-y-12">
           {experiences.map((exp) => (
-            <div key={exp.id} className="relative flex gap-6 sm:gap-8">
-              {/* Timeline Dot */}
-              <div className="relative shrink-0">
-                <div className="w-16 h-16 rounded-full bg-[#8245ec] flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-300">
-                  <FaBriefcase className="text-white text-xl" />
+            <div key={exp.id} className="relative flex gap-4 sm:gap-8 group">
+              
+              {/* Timeline Dot Column */}
+              <div className="relative shrink-0 flex flex-col items-center">
+                <div className="z-10 w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-[#8245ec] flex items-center justify-center shadow-lg shadow-purple-500/30 group-hover:scale-110 transition-transform duration-300 border-4 border-white dark:border-[#0f0f0f]">
+                  <FaBriefcase className="text-white text-base sm:text-xl" />
                 </div>
-                {/* Connecting Line (only if not last item) */}
-                {exp.id !== experiences[experiences.length - 1].id && (
-                  <div className="absolute top-16 left-1/2 transform -translate-x-1/2 w-0.5 h-12 bg-[#8245ec] opacity-30 hidden sm:block" />
-                )}
               </div>
 
               {/* Content Card */}
-              <div className="flex-1 bg-[#cdb3f4] dark:bg-[#222741] p-6 rounded-xl shadow-md border hover:shadow-[0_0_25px_#8245ec80] transition-all duration-300 hover:scale-[1.02]">
+              <div className="flex-1 min-w-0 bg-[#cdb3f4]/20 dark:bg-[#222741]/80 backdrop-blur-sm p-5 sm:p-8 rounded-2xl shadow-sm border border-purple-100 dark:border-white/5 hover:shadow-[0_0_25px_#8245ec40] hover:border-purple-500/30 transition-all duration-300 hover:scale-[1.01]">
+                
                 {/* Header: Role & Company */}
                 <div className="mb-4">
-                  <h3 className="text-xl sm:text-2xl font-bold mb-1 text-[#000000] dark:text-white">
+                  <h3 className="text-lg sm:text-2xl font-bold mb-1 text-neutral-900 dark:text-white leading-tight">
                     {exp.role}
                   </h3>
-                  <p className="text-[#3e25c0] dark:text-[#d1d0d6] font-semibold text-base sm:text-lg">
-                    {exp.company}
+                  <p className="text-[#6c5bbd] dark:text-[#a78bfa] font-bold text-sm sm:text-lg">
+                    @{exp.company}
                   </p>
                 </div>
 
                 {/* Meta Info: Duration & Location */}
-                <div className="flex flex-wrap gap-4 mb-4 text-[#6c5bbd] dark:text-[#abb0ca] text-sm">
-                  <span className="flex items-center gap-2 text-[#2e2b3c] dark:text-[#d1d0d6]">
-                    <FaCalendarAlt className="text-[#8245ec] " />
+                <div className="flex flex-wrap gap-x-6 gap-y-2 mb-4 text-sm text-neutral-600 dark:text-neutral-400">
+                  <span className="flex items-center gap-2">
+                    <FaCalendarAlt className="text-[#8245ec] shrink-0" />
                     {exp.duration}
                   </span>
-                  <span className="flex items-center gap-2 text-[#2e2b3c] dark:text-[#d1d0d6]">
-                    <FaLocationDot className="text-[#8245ec]" />
+                  <span className="flex items-center gap-2">
+                    <FaLocationDot className="text-[#8245ec] shrink-0" />
                     {exp.location}
                   </span>
                 </div>
 
                 {/* Description */}
-                <p className="text-[#2e2b3c] dark:text-[#b5b3d5] text-sm sm:text-base leading-relaxed mb-4">
+                <p className="text-neutral-700 dark:text-[#d1d5db] text-sm sm:text-base leading-relaxed mb-6">
                   {exp.description}
                 </p>
 
                 {/* Skills Tags */}
-                <div className="flex flex-wrap gap-2 mb-4">
+                <div className="flex flex-wrap gap-2 mb-6">
                   {exp.skills.map((skill) => (
                     <span
                       key={`${exp.id}-${skill}`}
-                      className="px-3 py-1 text-xs font-medium rounded-full bg-[#8245ec] text-white border border-[#8245ec] hover:bg-transparent hover:text-[#8245ec] transition-all duration-200 cursor-default"
+                      className="px-3 py-1 text-xs font-semibold rounded-md bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 border border-purple-200 dark:border-purple-500/20"
                     >
                       {skill}
                     </span>
@@ -98,7 +111,7 @@ const Experience = () => {
                     href={exp.letterLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold rounded-lg bg-[#8245ec] text-white hover:bg-purple-700 transition-all duration-200 hover:shadow-[0_0_15px_#8245ec70]"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-bold rounded-xl bg-[#8245ec] text-white hover:bg-purple-700 active:scale-95 transition-all duration-200 shadow-lg shadow-purple-500/25"
                   >
                     <FaFileAlt className="text-lg" />
                     View Experience Letter
