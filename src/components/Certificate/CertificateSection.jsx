@@ -71,7 +71,7 @@ const CertificateSection = () => {
 
         {/* --- MAIN SLIDER CONTAINER --- */}
         <div
-          className="relative w-full max-w-5xl mx-auto min-h-[520px] md:min-h-[450px] flex flex-col"
+          className="relative w-full max-w-5xl mx-auto min-h-[550px] md:min-h-[450px] flex flex-col"
           onMouseEnter={() => setIsAutoPlaying(false)}
           onMouseLeave={() => setIsAutoPlaying(true)}
         >
@@ -105,17 +105,16 @@ const CertificateSection = () => {
                 className="absolute inset-0 w-full h-full flex flex-col md:flex-row"
               >
 
-
                 {/* --- LEFT SIDE: DETAILS --- */}
                 <div className="w-full md:w-[40%] flex-1 p-6 md:p-10 flex flex-col order-2 md:order-1 relative bg-white dark:bg-[#0f0f0f] md:border-r border-neutral-200 dark:border-white/10">
 
                   {/* Background Decoration */}
                   <div className="absolute top-0 left-0 w-32 h-32 bg-purple-500/5 rounded-br-full z-0 pointer-events-none" />
 
-                  {/* FIX: Added 'h-full flex flex-col' here to make layout rigid */}
+                  {/* Content Container */}
                   <div className="relative z-10 flex flex-col h-full">
 
-                    {/* --- TOP SECTION (Fixed at Top) --- */}
+                    {/* --- TOP SECTION  --- */}
                     <div>
                       {/* Issued By */}
                       <div className="mb-4">
@@ -128,10 +127,12 @@ const CertificateSection = () => {
                         </div>
                       </div>
 
-                      {/* Title */}
-                      <h3 className="text-2xl md:text-3xl font-black text-neutral-900 dark:text-white mb-3 leading-tight h-18 md:h-auto line-clamp-2 md:line-clamp-none">
-                        {currentCert.name}
-                      </h3>
+                      {/* Title -  */}
+                      <div className="min-h-16 md:min-h-20 flex items-center mb-3">
+                         <h3 className="text-2xl md:text-3xl font-black text-neutral-900 dark:text-white leading-tight line-clamp-2">
+                           {currentCert.name}
+                         </h3>
+                      </div>
 
                       {/* Date */}
                       <div className="flex items-center gap-2 text-xs text-neutral-500 font-medium mb-6">
@@ -139,14 +140,15 @@ const CertificateSection = () => {
                         <span>Issued on {currentCert.date}</span>
                       </div>
 
-                      {/* Description */}
-                      <p className="hidden md:block text-neutral-600 dark:text-neutral-300 text-sm leading-relaxed border-l-2 border-purple-100 dark:border-white/10 pl-4 line-clamp-3">
-                        {currentCert.description || "Verified certification demonstrating technical proficiency."}
-                      </p>
+                      {/* Description  */}
+                      <div className="hidden md:block min-h-18">
+                         <p className="text-neutral-600 dark:text-neutral-300 text-sm leading-relaxed border-l-2 border-purple-100 dark:border-white/10 pl-4 line-clamp-3">
+                           {currentCert.description || "Verified certification demonstrating technical proficiency."}
+                         </p>
+                      </div>
                     </div>
 
-                    {/* --- BOTTOM SECTION (Fixed at Bottom) --- */}
-                    {/* 'mt-auto' pushes this div to the very bottom */}
+                    {/* --- BOTTOM SECTION  */}
                     <div className="mt-auto pt-6 flex flex-col sm:flex-row gap-4">
                       <a
                         href={currentCert.link}
@@ -160,25 +162,18 @@ const CertificateSection = () => {
 
                   </div>
                 </div>
-                {/* --- RIGHT SIDE: IMAGE --- */}
 
-                <div className="w-full md:w-[60%] h-[280px] md:h-auto bg-neutral-100 dark:bg-neutral-900 relative overflow-hidden order-1 md:order-2 group">
+                {/* --- RIGHT SIDE: IMAGE --- */}
+                <div className="w-full md:w-[60%] h-[300px] md:h-auto bg-neutral-100 dark:bg-[#151515] relative overflow-hidden order-1 md:order-2 group flex items-center justify-center p-4">
+                  
                   <img
                     src={currentCert.image}
                     alt={currentCert.name}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105 shadow-md rounded-lg"
                   />
 
-                  {/* Gradient Overlay */}
-                  <div
-                    className="absolute inset-0 opacity-60 pointer-events-none"
-                    style={{
-                      background: "linear-gradient(to top, rgba(0,0,0,0.6), transparent)"
-                    }}
-                  />
-
-                  {/* Badge Overlay */}
-                  <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-md p-2 rounded-full shadow-lg z-10">
+                  {/* Badge Overlay  */}
+                  <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-md p-2 rounded-full shadow-lg z-10 border border-neutral-200">
                     <FaAward className="text-purple-600 text-xl" />
                   </div>
                 </div>

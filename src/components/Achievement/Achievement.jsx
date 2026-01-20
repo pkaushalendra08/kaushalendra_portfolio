@@ -278,15 +278,15 @@ const AchievementCard = ({ data, isActive }) => {
                                         <a key={idx} href={link.url} target="_blank" rel="noreferrer" className="flex items-center justify-between p-2 rounded-xl bg-white dark:bg-neutral-800 text-neutral-700 dark:text-neutral-200 hover:border-purple-500 transition-all border border-neutral-200 dark:border-white/5 group">
                                             <div className="flex items-center gap-2">
                                                 <link.icon className="w-4 h-4 text-purple-500" />
-                                                <span className="font-bold text-[11px] truncate max-w-[150px]">{link.text}</span>
+                                                <span className="font-bold text-[11px] wrap-break-word">{link.text}</span>
                                             </div>
                                             <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
                                         </a>
                                     ))}
                                 </div>
                                 {isClassified && (
-                                    <div className="mt-4 pt-3 border-t border-neutral-200 dark:border-white/10 flex items-center justify-center gap-1.5 text-[10px] font-black text-amber-600/60 uppercase tracking-tighter">
-                                        <Lock className="w-2.5 h-2.5" /> Source Classified (NTRO)
+                                    <div className="mt-4 pt-3 border-t border-neutral-200 dark:border-white/10 flex items-center justify-center gap-1.5 text-sm font-black text-amber-600/60 uppercase tracking-tighter">
+                                        <Lock className="w-3 h-3" /> Code Classified (as per NTRO)
                                     </div>
                                 )}
                             </div>
