@@ -9,7 +9,7 @@ import {
 } from "lucide-react";
 import { FaLinkedin } from "react-icons/fa6";
 
-// DATA SECTION 
+// --- DATA SECTION ---
 const ACHIEVEMENTS_DATA = [
     {
         id: "sih-2025",
@@ -54,41 +54,11 @@ const ACHIEVEMENTS_DATA = [
         ],
         isClassified: true,
     },
-    {
-        id: "hack-future-2026",
-        title: "Global Finalist HackSingapore",
-        subtitle: [
-            "International FinTech Challenge",
-            "DeFi Track"
-        ],
-        content: {
-            problem: "Cross-border payments for small businesses are notoriously slow (3-5 business days) and expensive (2-4% transaction fees) due to multiple banking intermediaries and currency exchange markups.",
-            solution: "We built 'PayFlow', a decentralized payment bridge using Polygon zkEVM. It facilitates instant stablecoin settlement between local merchants, effectively removing the middleman and reducing fees to <$0.01 per transaction.",
-            contribution: "I designed the core Smart Contracts in Solidity and integrated the WalletConnect V2 API for seamless mobile authentication. I also optimized gas usage by batching transactions using Account Abstraction (ERC-4337).",
-            features: [
-                "Instant Settlement (< 2s)",
-                "Gasless Meta-Transactions",
-                "Multi-Chain Support",
-                "QR Code Interface"
-            ],
-            techStack: ["Solidity", "React Native", "Polygon zkEVM", "Node.js", "Hardhat"],
-        },
-        badges: [
-            { icon: Users, text: "TEAM BLOCKBUSTER", color: "neutral" },
-            { icon: Trophy, text: "Global Top 10", color: "blue" },
-        ],
-        images: [
-            "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=1000&auto=format&fit=crop",
-            "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?q=80&w=1000&auto=format&fit=crop",
-        ],
-        links: [
-            { text: "View Project Demo", url: "#", icon: Zap },
-        ],
-        isClassified: false,
-    },
+    
 ];
 
-// COMPONENTS 
+// --- COMPONENTS ---
+
 const ExpandableText = ({ children, className }) => {
     const [isExpanded, setIsExpanded] = useState(false);
 
@@ -111,11 +81,8 @@ const ExpandableText = ({ children, className }) => {
     );
 };
 
-
 const ExpandableFeatures = ({ features }) => {
     const [isExpanded, setIsExpanded] = useState(false);
-
-    const visibleFeatures = isExpanded ? features : features;
 
     return (
         <div className="flex flex-col w-full">
@@ -147,7 +114,7 @@ const ExpandableFeatures = ({ features }) => {
     );
 };
 
-// Image Slider
+// Image Slider - Fixed width constraints
 const ImageSlider = ({ images, title }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isPaused, setIsPaused] = useState(false);
@@ -165,7 +132,7 @@ const ImageSlider = ({ images, title }) => {
 
     return (
         <div
-            className="relative w-full max-w-full aspect-video lg:aspect-auto lg:h-full min-h-[200px] sm:min-h-[300px] rounded-2xl overflow-hidden group shadow-xl border border-white/10"
+            className="relative w-full h-full aspect-video lg:aspect-auto min-h-[200px] sm:min-h-[300px] rounded-2xl overflow-hidden group shadow-xl border border-white/10"
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
         >
@@ -197,7 +164,7 @@ const ImageSlider = ({ images, title }) => {
     );
 };
 
-// Achievement Card
+// Achievement Card - Added min-w-0 to prevent grid blowout
 const AchievementCard = ({ data, isActive }) => {
     const { title, subtitle, content, badges, images, links, isClassified } = data;
 
@@ -210,8 +177,8 @@ const AchievementCard = ({ data, isActive }) => {
         >
             <div className="grid lg:grid-cols-2 gap-6 lg:gap-8 items-stretch mb-8 border-b border-neutral-200 dark:border-white/10 pb-8">
 
-                {/* Header Section */}
-                <div className="flex flex-col justify-center order-2 lg:order-1">
+                {/* Header Section - Added min-w-0 */}
+                <div className="flex flex-col justify-center order-2 lg:order-1 min-w-0">
                     <div className="flex flex-wrap gap-2 mb-4 md:mb-6">
                         <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] md:text-xs font-black border tracking-widest bg-yellow-400 text-yellow-950 border-yellow-500 shadow-md">
                             <Trophy className="w-3 h-3" /> WINNER
@@ -245,8 +212,8 @@ const AchievementCard = ({ data, isActive }) => {
                     </div>
                 </div>
 
-                {/* Slider Section */}
-                <div className="order-1 lg:order-2 w-full">
+                {/* Slider Section - Added min-w-0 */}
+                <div className="order-1 lg:order-2 w-full min-w-0">
                     <ImageSlider images={images} title={title} />
                 </div>
             </div>
@@ -350,7 +317,7 @@ const Achievement = () => {
                         transition={{ duration: 0.5 }}
                     >
                         <h2 className="text-3xl sm:text-6xl md:text-7xl font-black mb-6 text-neutral-900 dark:text-neutral-100 tracking-tighter">
-                             Major ACHIEVEMENTS
+                            Major ACHIEVEMENTS
                             <div className="w-24 h-2 bg-linear-to-r from-yellow-400 to-purple-600 mx-auto mt-4 rounded-full"></div>
                         </h2>
                     </motion.div>
