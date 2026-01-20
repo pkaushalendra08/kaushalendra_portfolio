@@ -19,7 +19,7 @@ const Footer = () => {
                 Kaushalendra Pratap
             </h3>
             <p className="text-xs text-gray-400 tracking-wide">
-                Software Developer • India
+                Software Developer • India • © {new Date().getFullYear()}
             </p>
         </div>
 
@@ -37,7 +37,7 @@ const Footer = () => {
         {/* 3. Copyright */}
         <div className="w-full border-t border-white/5 mt-2 pt-3 text-center">
           <p className="text-[10px] text-gray-600 uppercase tracking-[0.2em]">
-            © {new Date().getFullYear()} Designed & Built by <span className="text-purple-500 font-bold whitespace-nowrap">Kaushalendra Pratap</span> 
+            Designed & Built by <span className="text-purple-500 font-bold whitespace-nowrap">Kaushalendra Pratap</span> 
           </p>
         </div>
 
