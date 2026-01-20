@@ -128,7 +128,7 @@ const ProjectModal = ({ project, onClose }) => {
         />
 
         {/* Modal Container */}
-       
+        
         <motion.div
           initial={{ opacity: 0, scale: 0.95, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -276,8 +276,9 @@ const ProjectModal = ({ project, onClose }) => {
                   <CarouselContent className="h-full ml-0">
                     {galleryImages.map((img, index) => (
                       <CarouselItem key={index} className="h-full pl-0 relative">
-                         <div className="relative w-full h-full">
-                           <Image src={img} alt="" fill className="object-cover" priority={index === 0} />
+                         <div className="relative w-full h-full bg-black">
+                           {/* FIX: Changed object-cover to object-contain */}
+                           <Image src={img} alt="" fill className="object-contain" priority={index === 0} />
                          </div>
                       </CarouselItem>
                     ))}
