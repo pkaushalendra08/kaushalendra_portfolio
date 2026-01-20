@@ -62,7 +62,6 @@ const Navbar = ({ theme, toggleTheme }) => {
     { id: "contact", label: "Contact" },
   ];
 
-  // UPDATED: SocialLink now accepts a specific 'hoverColor' class
   const SocialLink = ({ href, icon: Icon, hoverColorClass }) => (
     <a
       href={href}
@@ -83,15 +82,18 @@ const Navbar = ({ theme, toggleTheme }) => {
       }`}
     >
       <div className="max-w-7xl mx-auto flex justify-between items-center">
-        <div className="shrink-0 text-base sm:text-lg md:text-xl font-semibold cursor-pointer whitespace-nowrap text-white">
+        
+        {/* Logo Section */}
+        <div className="shrink-0 text-base sm:text-lg md:text-xl font-semibold cursor-pointer whitespace-nowrap text-white z-50">
           <span>&lt;</span>
           <span>Kaushalendra Pratap</span>
           <span>/</span>
           <span>&gt;</span>
         </div>
 
-        {/* Desktop Menu */}
-        <ul className="hidden lg:flex space-x-6 xl:space-x-9 text-gray-300 items-center">
+        {/* Desktop Menu - FIX: Changed 'lg:flex' to 'xl:flex' */}
+        {/* This hides the text menu on screens smaller than 1280px to prevent collision */}
+        <ul className="hidden xl:flex space-x-6 2xl:space-x-9 text-gray-300 items-center">
           {menuItems.map((item) => (
             <li
               key={item.id}
@@ -99,22 +101,23 @@ const Navbar = ({ theme, toggleTheme }) => {
                 activeItem === item.id ? "text-[#8245ec] font-bold" : ""
               }`}
             >
-              <button onClick={() => handleMenuItemClick(item.id)} className="text-sm xl:text-base">
+              <button onClick={() => handleMenuItemClick(item.id)} className="text-base">
                 {item.label}
               </button>
             </li>
           ))}
         </ul>
 
-        {/* Socials (Desktop) */}
-        <div className="hidden md:flex items-center space-x-3">
+        {/* Socials (Desktop) - FIX: Changed 'md:flex' to 'xl:flex' */}
+        {/* We hide these on smaller laptops too, so they don't crash into the Hamburger icon */}
+        <div className="hidden xl:flex items-center space-x-3">
           <Tooltip>
             <TooltipTrigger asChild>
               <span>
                 <SocialLink 
                   href="https://github.com/pkaushalendra08" 
                   icon={FaGithub} 
-                  hoverColorClass="hover:bg-[#181717]" // GitHub Black
+                  hoverColorClass="hover:bg-[#181717]" 
                 />
               </span>
             </TooltipTrigger>
@@ -127,7 +130,7 @@ const Navbar = ({ theme, toggleTheme }) => {
                 <SocialLink 
                   href="https://www.linkedin.com/in/kaushalendra-pratap-kp08/" 
                   icon={FaLinkedinIn} 
-                  hoverColorClass="hover:bg-[#0A66C2]" // LinkedIn Blue
+                  hoverColorClass="hover:bg-[#0A66C2]" 
                 />
               </span>
             </TooltipTrigger>
@@ -140,7 +143,7 @@ const Navbar = ({ theme, toggleTheme }) => {
                 <SocialLink 
                   href="https://x.com/pkaushalendra08" 
                   icon={FaXTwitter} 
-                  hoverColorClass="hover:bg-[#000000]" // X Black
+                  hoverColorClass="hover:bg-[#000000]" 
                 />
               </span>
             </TooltipTrigger>
@@ -148,8 +151,9 @@ const Navbar = ({ theme, toggleTheme }) => {
           </Tooltip>
         </div>
 
-        {/* Mobile Toggle */}
-        <div className="lg:hidden flex items-center">
+        {/* Mobile Toggle - FIX: Changed 'lg:hidden' to 'xl:hidden' */}
+        {/* This ensures the Hamburger button appears on standard Laptops (1024px) */}
+        <div className="xl:hidden flex items-center">
           {isOpen ? (
             <FaRegCircleXmark className="text-3xl text-[#8245ec] cursor-pointer" onClick={() => setIsOpen(false)} />
           ) : (
@@ -158,9 +162,9 @@ const Navbar = ({ theme, toggleTheme }) => {
         </div>
       </div>
 
-      {/* MOBILE MENU */}
+      {/* MOBILE MENU - FIX: Changed 'lg:hidden' to 'xl:hidden' on the container */}
       {isOpen && (
-        <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-[90%] mt-2 bg-[#050414]/90 backdrop-blur-xl z-50 rounded-2xl shadow-2xl border border-white/10 lg:hidden overflow-hidden">
+        <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-[90%] mt-2 bg-[#050414]/90 backdrop-blur-xl z-50 rounded-2xl shadow-2xl border border-white/10 xl:hidden overflow-hidden">
           <ul className="flex flex-col items-center space-y-5 py-8 text-gray-300">
             {menuItems.map((item) => (
               <li
