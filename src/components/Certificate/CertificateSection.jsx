@@ -55,7 +55,7 @@ const CertificateSection = () => {
   const currentCert = certificates[currentIndex];
 
   return (
-    <section id="certificates" className="py-20 px-4 md:px-8 bg-transparent w-full overflow-hidden">
+    <section id="certificate" className="py-20 px-4 md:px-8 bg-transparent w-full overflow-hidden">
       <div className="max-w-7xl mx-auto">
 
         {/* Title */}

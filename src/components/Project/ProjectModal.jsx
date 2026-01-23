@@ -184,8 +184,8 @@ const ProjectModal = ({ project, onClose }) => {
                     </CarouselContent>
                     {galleryImages.length > 1 && (
                       <>
-                        <CarouselPrevious className="left-4 bg-black/20 text-white border-transparent hover:bg-black/60" />
-                        <CarouselNext className="right-4 bg-black/20 text-white border-transparent hover:bg-black/60" />
+                        <CarouselPrevious className="left-4 bg-black/20 text-black border-transparent hover:bg-black/60" />
+                        <CarouselNext className="right-4 bg-black/20 text-black border-transparent hover:bg-black/60" />
                       </>
                     )}
                  </Carousel>

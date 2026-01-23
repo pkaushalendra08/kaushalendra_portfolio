@@ -76,7 +76,7 @@ const Contact = () => {
   return (
     <section
       id="contact"
-      className="flex flex-col justify-center items-center w-full py-16 md:py-24 px-4 text-[#3b2e68] dark:text-[#d6ccff]"
+      className="flex flex-col justify-center items-center w-full py-12 md:py-20 px-4 text-[#3b2e68] dark:text-[#d6ccff]"
     >
       <div className="max-w-7xl mx-auto w-full flex flex-col items-center">
         
