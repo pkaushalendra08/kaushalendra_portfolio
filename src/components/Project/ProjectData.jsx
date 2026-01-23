@@ -29,39 +29,63 @@ const projectData = [
       "Reaction emojis share in real-time chat",
       "Scalable Grid Video Layout",
     ],
-    tags: ["Next.js 16", "Python", "Vision Agents", "Google Gemini", "Stream SDK", "Tailwind CSS","Shadcn UI", "Lucide React"]
+    tags: ["Next.js 16", "Python", "Vision Agents", "Google Gemini", "Stream SDK", "Tailwind CSS", "Shadcn UI", "Lucide React"]
   },
   {
-  "id": 2,
-  "title": "DigiFRA (SentinelX)",
-  "description": "A complex WebGIS frontend built to visualize Forest Rights Act data and satellite asset mapping.",
-  "longDescription": "DigiFRA (SentinelX) is a frontend-focused Decision Support System (DSS) prototype designed to digitize and monitor the implementation of the Forest Rights Act (FRA). Built with React 19 and Vite, the application features a high-performance interactive Atlas for visualizing satellite-mapped assets (farms, water bodies) and layered tribal land data. I engineered the dashboard interface to handle complex state management for scheme eligibility filtering and secure user authentication via Clerk.",
-  "images": [
-    "/projects/digifra/digi2.png",
-    "/projects/digifra/digi1.png",
-    "/projects/digifra/digi3.png",
-    "/projects/digifra/digi4.png",
-    "/projects/digifra/digi5.png",
-    "/projects/digifra/digi6.png",
-    "/projects/digifra/digi7.png",
-    "/projects/digifra/digi8.png",
-    "/projects/digifra/digi9.png",
-    "/projects/digifra/digi10.png",
-    "/projects/digifra/digi11.png",
-  ],
-  "snapshot": "/projects/digifra/digi2.png",
-  "live": "https://github.com/pkaushalendra08/DigiFRA",
-  "github": "https://github.com/pkaushalendra08/DigiFRA",
-  "features": [
-    "Geospatial Data Rendering (Maps)",
-    "Client-Side Data Filtering (DSS Logic)",
-    "Secure Authentication Flow (Clerk)",
-    "Responsive Dashboard Grid (Tailwind)",
-    "Interactive Asset Overlays"
-  ],
-  "tags": ["React 19", "Vite", "Tailwind CSS", "Clerk Auth", "Express", "Axios", "React Router"]
-},
-
+    "id": 2,
+    "title": "DigiFRA (SentinelX)",
+    "description": "A complex WebGIS frontend built to visualize Forest Rights Act data and satellite asset mapping.",
+    "longDescription": "DigiFRA (SentinelX) is a frontend-focused Decision Support System (DSS) prototype designed to digitize and monitor the implementation of the Forest Rights Act (FRA). Built with React 19 and Vite, the application features a high-performance interactive Atlas for visualizing satellite-mapped assets (farms, water bodies) and layered tribal land data. I engineered the dashboard interface to handle complex state management for scheme eligibility filtering and secure user authentication via Clerk.",
+    "images": [
+      "/projects/digifra/digi2.png",
+      "/projects/digifra/digi1.png",
+      "/projects/digifra/digi3.png",
+      "/projects/digifra/digi4.png",
+      "/projects/digifra/digi5.png",
+      "/projects/digifra/digi6.png",
+      "/projects/digifra/digi7.png",
+      "/projects/digifra/digi8.png",
+      "/projects/digifra/digi9.png",
+      "/projects/digifra/digi10.png",
+      "/projects/digifra/digi11.png",
+    ],
+    "snapshot": "/projects/digifra/digi2.png",
+    "live": "https://github.com/pkaushalendra08/DigiFRA",
+    "github": "https://github.com/pkaushalendra08/DigiFRA",
+    "features": [
+      "Geospatial Data Rendering (Maps)",
+      "Client-Side Data Filtering (DSS Logic)",
+      "Secure Authentication Flow (Clerk)",
+      "Responsive Dashboard Grid (Tailwind)",
+      "Interactive Asset Overlays"
+    ],
+    "tags": ["React 19", "Vite", "Tailwind CSS", "Clerk Auth", "Express", "Axios", "React Router"]
+  },
+  {
+    id: 8,
+    title: "ChitChatter",
+    description: "Real-time chat application enabling instant messaging through a modern interface.",
+    longDescription: "ChitChatter is a robust real-time messaging application built to demonstrate the power of WebSockets. It features instant bidirectional communication, allowing users to create rooms, send private messages, and see live status updates. The backend is powered by Node.js and Socket.io, ensuring low-latency delivery of messages.",
+    images: [
+      "/projects/chitchatter/cc1.png",
+      "/projects/chitchatter/cc2.png",
+      "/projects/chitchatter/cc3.png",
+      "/projects/chitchatter/cc4.png",
+      "/projects/chitchatter/cc5.png",
+      "/projects/chitchatter/cc6.png",
+    ],
+    snapshot: "/projects/chitchatter/cc1.png",
+    live: "https://chit-chatter-app.vercel.app/",
+    github: "https://github.com/pkaushalendra08/ChitChatter",
+    features: [
+      "Real-time Messaging (Socket.io)",
+      "User Authentication (JWT)",
+      "Online Status Indicators",
+      "Message History (MongoDB)",
+      "Responsive Chat UI"
+    ],
+    tags: ["React 19", "Tailwind CSS", "Context API", "NodeJS", "Express", "MongoDB", "Socket.io"]
+  },
   {
     id: 3,
     title: "AI Resume Generator",
