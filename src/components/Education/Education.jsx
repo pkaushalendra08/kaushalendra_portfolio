@@ -8,12 +8,12 @@ import { FaGraduationCap, FaMapMarkerAlt } from "react-icons/fa";
 const educationData = [
   {
     id: 1,
-    degree: "B.Tech in Computer Science",
+    degree: "B.Tech in Computer Science and Engineering",
     institution: "ABES Institute of Technology",
     duration: "2022 — 2026", 
     location: "Ghaziabad, India",
-    details: "Current Semester: 8th. Specializing in Full Stack Development & System Security.",
-    tags: ["Full Stack"],
+    details: "Current Semester: 8th. Specializing in Full Stack Development(MERN, NextJS) & System Security.",
+    tags: [""],
     isCurrent: true, 
   },
   {

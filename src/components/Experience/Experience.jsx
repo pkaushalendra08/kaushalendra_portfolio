@@ -18,7 +18,7 @@ const Experience = () => {
       duration: "September 2025 - November 2025",
       location: "Virtual Internship",
       description: "A project-based experiential learning program backed by the Ministry of IT. Focused on leveraging Large Language Models (LLMs) and transformer architectures to solve actual business problems.",
-      skills: ["Generative AI", "Deep Learning", "IBM Watson", "Prompt Engineering"],
+      skills: ["Generative AI", "AI Fundamentals", "Prompt Engineering"],
       letterLink: "https://drive.google.com/file/d/1zjDnkIjLUXUjHn7ffG1uP3cZWm7BiwP2/view?usp=sharing"
     },
     {
