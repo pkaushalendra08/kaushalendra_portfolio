@@ -69,14 +69,14 @@ const Navbar = ({ theme, toggleTheme }) => {
   };
 
   const menuItems = [
-    { id: "about", label: "About" },
-    { id: "skills", label: "Skills" },
-    { id: "experience", label: "Experience" },
-    { id: "project", label: "Project" },
-    { id: "education", label: "Education" },
-    { id: "certificate", label: "Certificate" },
-    { id: "contact", label: "Contact" },
-  ];
+  { id: "about", label: "About" },
+  { id: "experience", label: "Experience" },
+  { id: "project", label: "Projects" },
+  { id: "skills", label: "Skills" },
+  { id: "education", label: "Education" },
+  { id: "certificate", label: "Certificates" },
+  { id: "contact", label: "Contact" },
+];
 
   const SocialLink = ({ href, icon: Icon, hoverColorClass }) => (
     <a

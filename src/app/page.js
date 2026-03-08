@@ -13,10 +13,10 @@ export default function Home() {
   return (
     <div className="relative z-10 w-full flex flex-col gap-10 overflow-hidden">
       <About />
-      <Achievement />
-      <Skills />
       <Experience />
+      <Achievement />
       <Project />
+      <Skills />
       <Education />
       <CertificateSection />
       <Contact />

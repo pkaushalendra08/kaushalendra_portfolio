@@ -1,7 +1,7 @@
 "use client";
 
-import { FaLaravel, FaHtml5, FaCss3Alt, FaReact, FaNode, FaGithub , FaDocker, FaBootstrap, FaFigma, FaGitAlt,FaJava  } from "react-icons/fa6";
-import { SiNextdotjs, SiJavascript, SiMongodb, SiExpress, SiRedux, SiTailwindcss, SiMongoose, SiJfrogpipelines, SiPostman, SiKubernetes, SiC, SiCplusplus, SiPython, SiSocketdotio } from "react-icons/si";
+import { FaSQL, FaHtml5, FaCss3Alt, FaReact, FaNode, FaGithub , FaDocker, FaBootstrap, FaFigma, FaGitAlt,FaJava  } from "react-icons/fa6";
+import { SiMysql, SiNextdotjs, SiJavascript, SiMongodb, SiExpress, SiRedux, SiTailwindcss, SiMongoose, SiJfrogpipelines, SiPostman, SiKubernetes, SiC, SiCplusplus, SiPython, SiSocketdotio } from "react-icons/si";
 import { VscVscode } from "react-icons/vsc";
 
 export const SkillIcons = {
@@ -20,8 +20,8 @@ export const SkillIcons = {
   "Express.js": <SiExpress className="text-white"/>,
   MongoDB: <SiMongodb className="text-[#47A248]"/>,
   Mongoose: <SiMongoose className="text-[#880000]"/>,
-  Laravel: <FaLaravel className="text-white"/>,
   "Socket.io": <SiSocketdotio className="text-white"/>,
+  "MySQL": <SiMysql className="text-[#00758F]"/>,
 
   //Devops
   GitHub: <FaGithub className="text-white"/>,
@@ -39,6 +39,6 @@ export const SkillIcons = {
   C:<SiC className="text-[#A8B9CC]"/>,
   "C++": < SiCplusplus className="text-[#00599C]"/>,
   Python:<SiPython className="text-[#3776AB]"/>,
-  Java:<FaJava className="text-[#007396]" />,
+  "Java Basics":<FaJava className="text-[#007396]" />,
 
 };

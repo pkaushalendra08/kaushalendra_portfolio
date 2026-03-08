@@ -21,14 +21,14 @@ const skillData = {
     { name: "Express.js" },
     { name: "MongoDB" },
     { name: "Mongoose" },
-    { name: "Laravel" },
     { name: "Socket.io" },
+    { name: "MySQL" },
   ],
   "Programming Language": [
     { name: "C" },
     { name: "C++" },
     { name: "Python" },
-    { name: "Java" },
+    { name: "Java Basics" },
   ],
   Tools: [
     { name: "VS Code" },
