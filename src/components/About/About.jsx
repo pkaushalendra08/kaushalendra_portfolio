@@ -66,7 +66,7 @@ const About = () => {
             <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4 sm:gap-6">
 
               <a
-                href="https://drive.google.com/file/d/1MAZWYIrlit_W9qvHf2ZpbncMondLZ6Bb/view?usp=drivesdk"
+                href="https://drive.google.com/file/d/1eq9VXIOf6mKHPHGA-T2GtNCw0XAvwdin/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full sm:w-auto text-center inline-block text-white dark:text-[#141b2c] py-3 px-8 rounded-full text-lg font-bold transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg"
