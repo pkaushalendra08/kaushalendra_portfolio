@@ -14,7 +14,7 @@ const About = () => {
   );
 
   const words = [
-    "SDE-I (Frontend)",
+    "Software Developer",
     "Full Stack Developer",
     "SIH'25 National Winner",
   ];
