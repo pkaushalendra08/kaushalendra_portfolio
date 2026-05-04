@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback, useRef } from "react";
+import { useState, useCallback, useRef, useMemo } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, useInView } from "framer-motion";
@@ -15,7 +15,21 @@ const Projects = () => {
   const [selectedProject, setSelectedProject] = useState(null);
   const sectionRef = useRef(null);
 
-  const visibleProjects = showAll ? projectData : projectData.slice(0, 3);
+  // Sort projects by priority (ascending)
+  const sortedProjects = useMemo(() => {
+    return [...projectData].sort((a, b) => {
+      const priorityA = a.priority ?? 999;
+      const priorityB = b.priority ?? 999;
+      
+      if (priorityA !== priorityB) {
+        return priorityA - priorityB;
+      }
+      // Stable sort fallback: use ID if priorities are equal
+      return a.id - b.id;
+    });
+  }, []);
+
+  const visibleProjects = showAll ? sortedProjects : sortedProjects.slice(0, 3);
 
   // Animation hooks
   const containerRef = useRef(null);
@@ -69,14 +83,14 @@ const Projects = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-8 max-w-7xl mx-auto">
         {visibleProjects.map((project) => (
           <CardContainer key={project.id} className="inter-var w-full h-full" containerClassName="py-1 md:py-2">
-            <CardBody className="bg-gray-50 dark:bg-black relative group/card dark:hover:shadow-2xl dark:hover:shadow-purple-500/20 dark:border-white/20 border-black/10 w-full h-auto rounded-xl p-6 border flex flex-col">
+            <CardBody className="bg-gray-50 dark:bg-black relative group/card dark:hover:shadow-2xl dark:hover:shadow-purple-500/20 dark:border-white/20 border-black/10 w-full h-full rounded-xl p-6 border flex flex-col">
               
-              <CardItem translateZ="50" className="text-xl font-bold text-neutral-700 dark:text-white w-full text-center">
+              <CardItem translateZ="50" className="text-xl font-bold text-neutral-700 dark:text-white w-full text-center line-clamp-2 h-14 overflow-hidden">
                 {project.title}
               </CardItem>
 
               {/* Description */}
-              <CardItem as="p" translateZ="60" className="text-neutral-500 text-sm max-w-sm mt-3 mb-3 dark:text-neutral-300 line-clamp-3 text-center mx-auto">
+              <CardItem as="p" translateZ="60" className="text-neutral-500 text-sm max-w-sm mt-3 mb-3 dark:text-neutral-300 line-clamp-3 h-16 overflow-hidden text-center mx-auto">
                 {project.description}
               </CardItem>
 
@@ -126,7 +140,7 @@ const Projects = () => {
       </div>
 
       {/* View More Button */}
-      {projectData.length > 3 && (
+      {sortedProjects.length > 3 && (
         <div className="mt-12 text-center">
           <Button
             onClick={handleToggleProjects}

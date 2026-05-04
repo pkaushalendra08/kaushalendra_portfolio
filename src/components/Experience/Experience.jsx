@@ -30,10 +30,10 @@ const Experience = () => {
       letterLink: "https://drive.google.com/file/d/1zjDnkIjLUXUjHn7ffG1uP3cZWm7BiwP2/view?usp=sharing"
     },
     {
-      role: "SDE-I (Frontend)",
+      role: "Software Developer",
       company: "Astikan Healthcare",
       duration: "March 2026 - Present",
-      location: "Full Time - Onsite",
+      location: "",
       description: "Developing modern, scalable interfaces for a healthcare platform using React, Next.js, and TypeScript. I focus on building high-performance web applications, improving SEO and Core Web Vitals, and translating complex healthcare workflows into clean, user-friendly digital experiences while collaborating closely with backend and product teams.",
       skills: ["ReactJS", "NextJS", "JS", "TailwindCSS", "Typescript", "RestAPIs"],
       letterLink: ""

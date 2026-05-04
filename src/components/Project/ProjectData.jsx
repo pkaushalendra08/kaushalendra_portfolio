@@ -3,6 +3,7 @@
 const projectData = [
   {
     id: 1,
+    priority: 1,
     title: "MeetIQ - AI Powered Smart Meeting Assistant",
     description: "A next-gen video platform featuring a voice-activated AI assistant that delivers real-time transcription and context-aware meeting insights on command.",
     longDescription: "MeetIQ revolutionizes virtual meetings by integrating a passive AI agent directly into the call. Built with Stream SDK for low-latency video and Google Gemini for intelligence, the assistant listens silently and only activates when addressed ('Hey Assistant'). It provides real-time transcription, answers questions based on meeting context, and features a responsive, glassmorphic UI. The system solves common AI delays with optimistic UI updates and efficient context management.",
@@ -33,6 +34,7 @@ const projectData = [
   },
   {
     "id": 2,
+    "priority": 4,
     "title": "DigiFRA (SentinelX)",
     "description": "A complex WebGIS frontend built to visualize Forest Rights Act data and satellite asset mapping.",
     "longDescription": "DigiFRA (SentinelX) is a frontend-focused Decision Support System (DSS) prototype designed to digitize and monitor the implementation of the Forest Rights Act (FRA). Built with React 19 and Vite, the application features a high-performance interactive Atlas for visualizing satellite-mapped assets (farms, water bodies) and layered tribal land data. I engineered the dashboard interface to handle complex state management for scheme eligibility filtering and secure user authentication via Clerk.",
@@ -63,6 +65,7 @@ const projectData = [
   },
   {
     id: 8,
+    priority: 3,
     title: "ChitChatter",
     description: "Real-time chat application enabling instant messaging through a modern interface.",
     longDescription: "ChitChatter is a robust real-time messaging application built to demonstrate the power of WebSockets. It features instant bidirectional communication, allowing users to create rooms, send private messages, and see live status updates. The backend is powered by Node.js and Socket.io, ensuring low-latency delivery of messages.",
@@ -88,14 +91,19 @@ const projectData = [
   },
   {
     id: 3,
-    title: "AI Resume Generator",
+    priority: 2,
+    title: "ResuAI: Resume and CV Builder",
     description: "AI-powered application that leverages the Groq API to create professional resumes.",
     longDescription: "This tool leverages the blazing-fast Groq API to democratize professional resume writing. Users can input their raw details, and the AI structures it into a polished, professional format. It includes support for generating tailored cover letters based on specific job descriptions, significantly streamlining the job search process.",
     images: [
-      "/projects/resume&CV.png",
-      "/projects/resume-editor.png",
+      "/projects/resuAI/resu1.png",
+      "/projects/resuAI/resu2.png",
+      "/projects/resuAI/resu3.png",
+      "/projects/resuAI/resu4.png",
+      "/projects/resuAI/resu5.png",
+      "/projects/resuAI/resu6.png",
     ],
-    snapshot: "/projects/resume&CV.png",
+    snapshot: "/projects/resuAI/resu1.png",
     live: "https://ai-resume-generator-tech.vercel.app/",
     github: "https://github.com/pkaushalendra08/ai-resume-generator",
     features: [
@@ -109,6 +117,7 @@ const projectData = [
   },
   {
     id: 4,
+    priority: 5,
     title: "GeoAtlas",
     description: "Dynamic web application allowing users to explore detailed information about countries.",
     longDescription: "GeoAtlas serves as a digital encyclopedia for geography enthusiasts. It interfaces with the REST Countries API to fetch comprehensive data about every nation, including population, currencies, languages, and borders. The app features a dark mode, advanced filtering by region, and a search function that updates instantly as you type.",
@@ -132,6 +141,7 @@ const projectData = [
   },
   {
     id: 5,
+    priority: 6,
     title: "DailyPulse",
     description: "Responsive news application fetching latest articles using the GNews API.",
     longDescription: "DailyPulse keeps you informed with the latest headlines from around the world. Built with React-Bootstrap for a consistent layout, it fetches real-time articles via the GNews API. Users can filter news by categories such as Technology, Business, and Health, ensuring they see only what matters to them.",
@@ -152,6 +162,7 @@ const projectData = [
   },
   {
     id: 6,
+    priority: 7,
     title: "Plan&Do",
     description: "Simple, efficient To-Do List application built using HTML, CSS, and JavaScript.",
     longDescription: "Plan&Do is a minimalist task management tool designed to demonstrate core DOM manipulation concepts. It uses Local Storage to persist data, so your tasks remain saved even after refreshing the page. It features a clean, colorful interface with options to mark tasks as completed or delete them entirely.",

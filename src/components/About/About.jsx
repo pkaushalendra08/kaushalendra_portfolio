@@ -51,7 +51,7 @@ const About = () => {
 
             <p className="text-sm sm:text-base md:text-lg text-[#1f2024] dark:text-[#abb0ca] mb-8 leading-relaxed max-w-2xl mx-auto md:mx-0">
               I’m a passionate <b>Full-Stack Developer</b> currently working as{" "}
-              <b className="text-[#22c55e]">SDE-I (Frontend) at Astikan Healthcare</b>,
+              <b className="text-[#22c55e]">Software Developer at Astikan Healthcare</b>,
               where I build scalable, high-performance web applications using
               <b> React, Next.js, TypeScript, and modern frontend architectures</b>.
               I specialize in crafting responsive user interfaces, improving SEO and
