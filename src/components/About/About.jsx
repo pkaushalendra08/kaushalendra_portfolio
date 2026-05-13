@@ -26,7 +26,7 @@ const About = () => {
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="relative z-10 flex flex-col-reverse md:flex-row justify-between items-center gap-10 md:gap-4">
-          
+
           {/* Text Content */}
           <div className="w-full md:w-[60%] lg:w-[65%] text-center md:text-left">
             <h1 className="text-lg sm:text-2xl md:text-3xl font-bold text-[#19161d] dark:text-[#e9d7fe] mb-2 leading-tight">
@@ -49,17 +49,13 @@ const About = () => {
               </span>
             </h3>
 
-            <p className="text-sm sm:text-base md:text-lg text-[#1f2024] dark:text-[#abb0ca] mb-8 leading-relaxed max-w-2xl mx-auto md:mx-0">
-              I’m a passionate <b>Full-Stack Developer</b> currently working as{" "}
-              <b className="text-[#22c55e]">Software Developer at Astikan Healthcare</b>,
-              where I build scalable, high-performance web applications using
-              <b> React, Next.js, TypeScript, and modern frontend architectures</b>.
-              I specialize in crafting responsive user interfaces, improving SEO and
-              performance, and building clean full-stack systems with the MERN stack.
-              I’m also a <b className="text-[#8245ec]">
-              Smart India Hackathon 2025 National Winner</b>, where my team solved a
-              real-world problem statement provided by the
-              <b> National Technical Research Organisation (NTRO)</b>.
+            <p className="text-sm sm:text-base md:text-lg text-[#1f2024] dark:text-[#abb0ca] mb-8 leading-relaxed max-w-2xl mx-auto md:mx-0 text-justify">
+              I’m a passionate <b>Full-Stack Developer</b> skilled in
+              <b>React, Next.js, TypeScript, and the MERN stack</b>, with a strong focus on building scalable, high-performance, and user-friendly web applications.
+              I enjoy creating responsive interfaces, optimizing performance and SEO, and developing clean full-stack solutions.
+              I’m also the <b className="text-[#8245ec]">
+                Smart India Hackathon 2025 National Winner</b>, where my team solved a real-world problem statement provided by{" "}
+              <b>National Technical Research Organisation (NTRO), Govt. of India</b>.
             </p>
 
             {/* Buttons */}

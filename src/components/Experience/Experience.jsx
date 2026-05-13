@@ -12,15 +12,6 @@ const Experience = () => {
 
   const experiences = [
     {
-      role: "Full Stack Developer Intern",
-      company: "YoursCollege",
-      duration: "September 2025 - October 2025",
-      location: "Remote",
-      description: "Contributed to the YoursCollege platform and its admin panel, working across frontend and backend modules. Built responsive UIs with React.js, developed APIs using Laravel, and managed data with MySQL. Strengthened skills in full-stack development, admin dashboard design, and frontend-backend integration within an agile environment.",
-      skills: ["React.js", "Tailwind CSS", "REST APIs", "Git", "Laravel"],
-      letterLink: "https://drive.google.com/file/d/1UcZXRd20cpJE54XYsTecsL0d8ZM4DEz4/view?usp=drivesdk"
-    },
-    {
       role: "Generative AI Virtual Internship",
       company: "IBM & NASSCOM",
       duration: "September 2025 - November 2025",
@@ -30,12 +21,21 @@ const Experience = () => {
       letterLink: "https://drive.google.com/file/d/1zjDnkIjLUXUjHn7ffG1uP3cZWm7BiwP2/view?usp=sharing"
     },
     {
-      role: "Software Developer",
+      role: "Full Stack Developer Intern",
+      company: "YoursCollege",
+      duration: "September 2025 - October 2025",
+      location: "Remote",
+      description: "Contributed to the YoursCollege platform and its admin panel, working across frontend and backend modules. Built responsive UIs with React.js, developed APIs using Laravel, and managed data with MySQL. Strengthened skills in full-stack development, admin dashboard design, and frontend-backend integration within an agile environment.",
+      skills: ["React.js", "Tailwind CSS", "REST APIs", "Git", "Laravel"],
+      letterLink: "https://drive.google.com/file/d/1UcZXRd20cpJE54XYsTecsL0d8ZM4DEz4/view?usp=drivesdk"
+    },
+    {
+      role: "Full Stack Developer",
       company: "Astikan Healthcare",
-      duration: "March 2026 - Present",
-      location: "",
-      description: "Developing modern, scalable interfaces for a healthcare platform using React, Next.js, and TypeScript. I focus on building high-performance web applications, improving SEO and Core Web Vitals, and translating complex healthcare workflows into clean, user-friendly digital experiences while collaborating closely with backend and product teams.",
-      skills: ["ReactJS", "NextJS", "JS", "TailwindCSS", "Typescript", "RestAPIs"],
+      duration: "March 2026 - April 2026",
+      location: "Noida",
+      description: "Developed and deployed an advanced admin ecosystem using Next.js, Node.js, and Fastify to efficiently manage SEO, blogs, and dynamic web pages. Implemented a scalable SEO architecture using Incremental Static Regeneration (ISR) to improve indexing, performance, and dynamic content delivery. Built secure APIs, optimized backend workflows, and enhanced overall platform performance to support scalable and high-performing web applications.",
+      skills: ["ReactJS", "NextJS", "TailwindCSS", "Typescript", "RestAPIs", "NodeJs", "Fastify", "MongoDB"],
       letterLink: ""
     },
   ];
