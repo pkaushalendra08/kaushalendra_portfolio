@@ -143,11 +143,17 @@ const ProjectModal = ({ project, onClose }) => {
             /* DESKTOP: Resets margins so it centers perfectly */
             md:mb-0 md:w-full md:h-[650px] md:max-w-6xl
             
-            bg-white dark:bg-[#0f0f0f] 
+            bg-[#0f0f0f]
             rounded-2xl md:rounded-3xl shadow-2xl 
             overflow-y-auto md:overflow-hidden
             flex flex-col md:flex-row
+            ring-1 ring-purple-500/30
+            p-2 md:p-2.5
           "
+          style={{
+            boxShadow:
+              "0 0 0 1px rgba(168,85,247,0.18), 0 0 32px 4px rgba(168,85,247,0.18), 0 0 80px 16px rgba(139,92,246,0.10), 0 25px 50px -12px rgba(0,0,0,0.6)",
+          }}
         >
           {/* Close Button */}
           <button
@@ -160,7 +166,7 @@ const ProjectModal = ({ project, onClose }) => {
           {/* ============================== */}
           {/* DESKTOP VIEW (GRID)      */}
           {/* ============================== */}
-          <div className="hidden md:flex w-full h-full">
+          <div className="hidden md:flex w-full h-full rounded-xl md:rounded-2xl overflow-hidden">
             
             {/* LEFT COLUMN: Images (Top) + Key Features (Bottom) */}
             <div className="w-[60%] h-full flex flex-col border-r border-neutral-200 dark:border-white/5 bg-neutral-50 dark:bg-[#121212]">
@@ -268,7 +274,7 @@ const ProjectModal = ({ project, onClose }) => {
           {/* ============================== */}
           {/* MOBILE VIEW (STACK)     */}
           {/* ============================== */}
-          <div className="md:hidden flex flex-col h-auto bg-white dark:bg-[#0f0f0f]">
+          <div className="md:hidden flex flex-col h-auto bg-white dark:bg-[#0f0f0f] rounded-xl overflow-hidden">
             
             {/* 1. Image Carousel (Top Fixed) */}
             <div className="w-full h-[35vh] bg-black shrink-0 relative">
