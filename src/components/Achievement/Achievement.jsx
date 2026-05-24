@@ -312,6 +312,8 @@ const Achievement = () => {
             <div ref={containerRef} className="w-full relative z-10">
                 <div className="text-center mb-12 md:mb-20 px-4">
                     <motion.div
+                        data-aos="fade-up"
+                        data-aos-duration="600"
                         initial={{ opacity: 0, y: 20 }}
                         animate={isInView ? { opacity: 1, y: 0 } : {}}
                         transition={{ duration: 0.5 }}
@@ -331,7 +333,7 @@ const Achievement = () => {
                             transition={{ type: "spring", stiffness: 200, damping: 25 }}
                         >
                             {ACHIEVEMENTS_DATA.map((data, index) => (
-                                <div key={data.id} className="w-full shrink-0 px-0 md:px-6">
+                                <div key={data.id} className="w-full shrink-0 px-0 md:px-6" data-aos="zoom-in-up" data-aos-duration="700">
                                     <AchievementCard data={data} isActive={index === activeIndex} />
                                 </div>
                             ))}

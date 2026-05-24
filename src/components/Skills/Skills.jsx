@@ -70,6 +70,8 @@ export default function Skills() {
       <div ref={containerRef} className="max-w-7xl mx-auto mb-16 relative z-10 w-full">
         <div className="text-center max-w-3xl mx-auto">
           <motion.div
+            data-aos="fade-up"
+            data-aos-duration="600"
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5 }}
@@ -118,6 +120,9 @@ export default function Skills() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.8 }}
                 transition={{ duration: 0.3 }}
+                data-aos="fade-up"
+                data-aos-delay={index * 50}
+                data-aos-duration="500"
                 key={`${skill.name}-${index}`}
                 className={`${isHiddenOnMobile ? 'hidden md:flex' : 'flex'} flex-col items-center justify-center bg-white dark:bg-[#222741]/80 backdrop-blur-sm rounded-2xl p-6 w-full h-32 sm:h-36 hover:scale-105 transition-all duration-300 shadow-sm hover:shadow-xl hover:shadow-purple-500/20 border border-neutral-100 dark:border-white/5 group`}
               >

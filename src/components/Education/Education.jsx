@@ -9,12 +9,12 @@ const educationData = [
   {
     id: 1,
     degree: "Bachelor of Technology in Computer Science and Engineering",
-    institution: "ABES Institute of Technology",
+    institution: "ABES Institute of Technology, Ghaziabad",
     duration: "2022 — 2026", 
     location: "Ghaziabad, India",
-    details: "Current Semester: 8th. Specializing in Full Stack Development(MERN, NextJS)",
+    details: "Completed. Specializing in Full Stack Development(MERN, NextJS)",
     tags: [""],
-    isCurrent: true, 
+    isCurrent: false, 
   },
   {
     id: 2,
@@ -135,7 +135,7 @@ const Education = () => {
       <div className="max-w-6xl mx-auto">
         
         {/* Header */}
-        <div className="text-center mb-24">
+        <div className="text-center mb-24" data-aos="fade-up" data-aos-duration="600">
           <h2 className="text-3xl md:text-5xl font-bold mb-6 text-neutral-900 dark:text-white">
             My Education Journey
           </h2>
@@ -161,6 +161,9 @@ const Education = () => {
           {educationData.map((edu, index) => (
             <motion.div
               key={edu.id}
+              data-aos={index % 2 === 0 ? "fade-right" : "fade-left"}
+              data-aos-duration="700"
+              data-aos-delay={index * 100}
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}

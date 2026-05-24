@@ -2,6 +2,7 @@
 
 import { ThemeProvider } from "@/components/theme-provider";
 import dynamic from "next/dynamic";
+import AOSInit from "@/components/utils/AOSInit";
 
 const GlobalBackground = dynamic(
   () =>
@@ -19,6 +20,7 @@ export default function ClientRoot({ children }) {
       enableSystem
       disableTransitionOnChange
     >
+      <AOSInit />
       <GlobalBackground />
       {children}
     </ThemeProvider>

@@ -64,6 +64,8 @@ const Projects = () => {
       <div ref={containerRef} className="max-w-7xl mx-auto mb-8 md:mb-12 relative z-10 w-full">
         <div className="text-center max-w-3xl mx-auto">
           <motion.div
+            data-aos="fade-up"
+            data-aos-duration="600"
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5 }}
@@ -82,7 +84,7 @@ const Projects = () => {
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-8 max-w-7xl mx-auto">
         {visibleProjects.map((project) => (
-          <CardContainer key={project.id} className="inter-var w-full h-full" containerClassName="py-1 md:py-2">
+          <CardContainer key={project.id} data-aos="fade-up" data-aos-delay={visibleProjects.indexOf(project) * 100} data-aos-duration="600" className="inter-var w-full h-full" containerClassName="py-1 md:py-2">
             <CardBody className="bg-gray-50 dark:bg-black relative group/card dark:hover:shadow-2xl dark:hover:shadow-purple-500/20 dark:border-white/20 border-black/10 w-full h-full rounded-xl p-6 border flex flex-col">
               
               <CardItem translateZ="50" className="text-xl font-bold text-neutral-700 dark:text-white w-full text-center line-clamp-2 h-14 overflow-hidden">

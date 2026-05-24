@@ -59,7 +59,7 @@ const CertificateSection = () => {
       <div className="max-w-7xl mx-auto">
 
         {/* Title */}
-        <div className="text-center mb-12 md:mb-16">
+        <div className="text-center mb-12 md:mb-16" data-aos="fade-up" data-aos-duration="600">
           <h2 className="text-3xl md:text-5xl font-bold mb-4 text-neutral-900 dark:text-white">
             My Certifications
           </h2>
@@ -71,6 +71,9 @@ const CertificateSection = () => {
 
         {/* --- MAIN SLIDER CONTAINER --- */}
         <div
+          data-aos="zoom-in-up"
+          data-aos-duration="700"
+          data-aos-delay="100"
           className="relative w-full max-w-5xl mx-auto min-h-[550px] md:min-h-[450px] flex flex-col"
           onMouseEnter={() => setIsAutoPlaying(false)}
           onMouseLeave={() => setIsAutoPlaying(true)}

@@ -49,6 +49,8 @@ const Experience = () => {
       <div ref={containerRef} className="max-w-7xl mx-auto mb-16 relative z-10 w-full">
         <div className="text-center max-w-3xl mx-auto">
           <motion.div
+            data-aos="fade-up"
+            data-aos-duration="600"
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5 }}
@@ -75,7 +77,7 @@ const Experience = () => {
             const isCurrent = exp.duration.includes("Present");
 
             return (
-              <div key={index} className="relative flex gap-4 sm:gap-8 group">
+              <div key={index} data-aos="fade-up" data-aos-delay={index * 100} data-aos-duration="600" className="relative flex gap-4 sm:gap-8 group">
 
                 {/* Timeline Dot */}
                 <div className="relative shrink-0 flex flex-col items-center">

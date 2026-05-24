@@ -28,7 +28,11 @@ const About = () => {
         <div className="relative z-10 flex flex-col-reverse md:flex-row justify-between items-center gap-10 md:gap-4">
 
           {/* Text Content */}
-          <div className="w-full md:w-[60%] lg:w-[65%] text-center md:text-left">
+          <div
+            data-aos="fade-right"
+            data-aos-duration="800"
+            className="w-full md:w-[60%] lg:w-[65%] text-center md:text-left"
+          >
             <h1 className="text-lg sm:text-2xl md:text-3xl font-bold text-[#19161d] dark:text-[#e9d7fe] mb-2 leading-tight">
               Hello, I am
             </h1>
@@ -85,7 +89,11 @@ const About = () => {
           </div>
 
           {/* Image */}
-          <div className="w-full md:w-[40%] lg:w-[35%] flex justify-center items-center">
+          <div
+            data-aos="fade-left"
+            data-aos-duration="800"
+            className="w-full md:w-[40%] lg:w-[35%] flex justify-center items-center"
+          >
 
             {/* Mobile */}
             <div className="block md:hidden w-full max-w-[280px] sm:max-w-[320px]">

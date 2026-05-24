@@ -84,6 +84,8 @@ const Contact = () => {
         <div ref={containerRef} className="mb-12 relative z-10 w-full">
           <div className="text-center max-w-2xl mx-auto">
             <motion.div
+              data-aos="fade-up"
+              data-aos-duration="600"
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5 }}
@@ -100,7 +102,7 @@ const Contact = () => {
         </div>
 
         {/* Form Container */}
-        <div className="w-full max-w-md bg-[#cdb3f4] dark:bg-[#222741] p-6 md:p-8 rounded-2xl shadow-xl border-2 border-[#626267]">
+        <div data-aos="fade-up" data-aos-delay="150" data-aos-duration="700" className="w-full max-w-md bg-[#cdb3f4] dark:bg-[#222741] p-6 md:p-8 rounded-2xl shadow-xl border-2 border-[#626267]">
           <h3 className="text-xl font-bold text-[#0e0e0e] dark:text-[#ffffff] text-center mb-6">
             Connect with ME!
           </h3>

@@ -19,8 +19,8 @@ const projectData = [
       "/projects/meetiq/meetiq9.png",
     ],
     snapshot: "/projects/meetiq/meetiq.png",
-    live: "https://github.com/pkaushalendra08/MeetIQ-AI-Smart-Meeting-Assistant",
-    github: "https://github.com/pkaushalendra08/MeetIQ-AI-Smart-Meeting-Assistant",
+    live: "https://meet-iq-flax.vercel.app",
+    github: "https://github.com/pkaushalendra08/meetIQ",
     features: [
       "Voice-Activated AI ('Hey Assistant')",
       "Real-time Live Transcription",
