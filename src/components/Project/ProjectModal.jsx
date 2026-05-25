@@ -274,7 +274,7 @@ const ProjectModal = ({ project, onClose }) => {
           {/* ============================== */}
           {/* MOBILE VIEW (STACK)     */}
           {/* ============================== */}
-          <div className="md:hidden flex flex-col h-auto bg-white dark:bg-[#0f0f0f] rounded-xl overflow-hidden">
+          <div className="md:hidden flex flex-col shrink-0 h-auto bg-white dark:bg-[#0f0f0f] rounded-xl overflow-hidden">
             
             {/* 1. Image Carousel (Top Fixed) */}
             <div className="w-full h-[35vh] bg-black shrink-0 relative">
