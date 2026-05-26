@@ -3,6 +3,8 @@
 import { useRef, useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { motion, useInView } from "framer-motion";
+import { Mail, Phone, Linkedin, Github } from "lucide-react";
+import { FaGithub, FaLinkedin } from "react-icons/fa6";
 
 const Contact = () => {
   
@@ -91,32 +93,72 @@ const Contact = () => {
               transition={{ duration: 0.5 }}
             >
               <h2 className="text-3xl sm:text-5xl font-bold mb-8 text-center text-neutral-800 dark:text-neutral-200">
-                My Contact
+                Get In Touch
                 <div className="w-24 h-1 bg-purple-500 mx-auto mt-4 rounded-full"></div>
               </h2>
               <p className="text-base sm:text-xl font-bold mb-2 text-center text-neutral-800 dark:text-neutral-200">
-                I'd love to hear from you — reach out for any opportunities or questions!
+                Feel free to reach out for software development opportunities, collaborations, or technical discussions.
               </p>
             </motion.div>
           </div>
         </div>
 
-        {/* Form Container */}
-        <div data-aos="fade-up" data-aos-delay="150" data-aos-duration="700" className="w-full max-w-md bg-[#cdb3f4] dark:bg-[#222741] p-6 md:p-8 rounded-2xl shadow-xl border-2 border-[#626267]">
-          <h3 className="text-xl font-bold text-[#0e0e0e] dark:text-[#ffffff] text-center mb-6">
-            Connect with ME!
-          </h3>
+        {/* Content Container */}
+        <div className="flex flex-col lg:flex-row gap-8 w-full justify-center items-center lg:items-start max-w-5xl">
+          
+          {/* Contact Info Cards */}
+          <div data-aos="fade-right" data-aos-delay="100" data-aos-duration="700" className="flex flex-col gap-4 w-full max-w-md">
+            
+            {/* Email Card */}
+            <a href="mailto:pkaushalendra08@gmail.com" className="flex items-center gap-4 bg-[#cdb3f4] dark:bg-[#1a1f36] p-4 rounded-xl shadow-md border border-[#626267] hover:border-[#8245ec] hover:scale-105 hover:shadow-xl transition-all duration-300 group cursor-pointer">
+              <div className="bg-[#b388ff] dark:bg-[#2a304d] p-3 rounded-lg text-white group-hover:scale-110 transition-transform">
+                <Mail size={24} className="text-[#3b2e68] dark:text-[#4fc3f7]" />
+              </div>
+              <div>
+                <p className="text-xs font-bold text-[#8245ec] dark:text-[#4fc3f7] uppercase tracking-wider mb-1">Email</p>
+                <p className="text-sm font-semibold text-[#0e0e0e] dark:text-white">pkaushalendra08@gmail.com</p>
+              </div>
+            </a>
+
+            {/* LinkedIn Card */}
+            <a href="https://www.linkedin.com/in/kaushalendra-pratap-kp08/" target="_blank" rel="noreferrer" className="flex items-center gap-4 bg-[#cdb3f4] dark:bg-[#1a1f36] p-4 rounded-xl shadow-md border border-[#626267] hover:border-[#8245ec] hover:scale-105 hover:shadow-xl transition-all duration-300 group cursor-pointer">
+              <div className="bg-[#b388ff] dark:bg-[#2a304d] p-3 rounded-lg text-white group-hover:scale-110 transition-transform">
+                <FaLinkedin size={24} className="text-[#3b2e68] dark:text-[#4fc3f7]" />
+              </div>
+              <div>
+                <p className="text-xs font-bold text-[#8245ec] dark:text-[#4fc3f7] uppercase tracking-wider mb-1">LinkedIn</p>
+                <p className="text-sm font-semibold text-[#0e0e0e] dark:text-white">kaushalendra-pratap-kp08</p>
+              </div>
+            </a>
+
+            {/* GitHub Card */}
+            <a href="https://github.com/pkaushalendra08" target="_blank" rel="noreferrer" className="flex items-center gap-4 bg-[#cdb3f4] dark:bg-[#1a1f36] p-4 rounded-xl shadow-md border border-[#626267] hover:border-[#8245ec] hover:scale-105 hover:shadow-xl transition-all duration-300 group cursor-pointer">
+              <div className="bg-[#b388ff] dark:bg-[#2a304d] p-3 rounded-lg text-white group-hover:scale-110 transition-transform">
+                <FaGithub size={24} className="text-[#3b2e68] dark:text-[#ebf2f6]" />
+              </div>
+              <div>
+                <p className="text-xs font-bold text-[#8245ec] dark:text-[#4fc3f7] uppercase tracking-wider mb-1">GitHub</p>
+                <p className="text-sm font-semibold text-[#0e0e0e] dark:text-white">pkaushalendra08</p>
+              </div>
+            </a>
+
+          </div>
+          {/* Form Container */}
+          <div data-aos="fade-up" data-aos-delay="150" data-aos-duration="700" className="w-full flex-1 max-w-lg bg-[#cdb3f4] dark:bg-[#222741] p-5 md:p-6 rounded-2xl shadow-xl border-2 border-[#626267]">
+            <h3 className="text-lg font-bold text-[#0e0e0e] dark:text-[#ffffff] text-center mb-4">
+              Connect with ME!
+            </h3>
 
           {isSubmitSuccessful ? (
-            <div className="flex flex-col items-center justify-center h-64 text-center animate-pulse">
-              <svg className="w-16 h-16 text-green-500 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="flex flex-col items-center justify-center h-48 text-center animate-pulse">
+              <svg className="w-12 h-12 text-green-500 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
               </svg>
-              <p className="text-xl font-bold text-green-700 dark:text-green-400">Message Sent!</p>
-              <p className="text-sm text-gray-600 dark:text-gray-300 mt-2">I'll get back to you shortly.</p>
+              <p className="text-lg font-bold text-green-700 dark:text-green-400">Message Sent!</p>
+              <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">I'll get back to you shortly.</p>
             </div>
           ) : (
-            <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col space-y-4">
+            <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col space-y-2">
               
               {/* Name Input */}
               <div>
@@ -124,11 +166,11 @@ const Contact = () => {
                   {...register("name", { required: "Name is required" })}
                   type="text"
                   placeholder="Your Name"
-                  className={`w-full p-3 text-base rounded-md bg-[#e8e2fd] text-[#3b2e68] border-2 placeholder-[#2d2b2b]/70 focus:outline-none focus:border-[#8245ec] transition-colors
-                    ${errors.name ? "border-red-500" : "border-[#9f86f9]"}`}
+                  className={`w-full p-2.5 text-sm rounded-md bg-white/10 dark:bg-black/20 backdrop-blur-md border-2 border-white/40 dark:border-white/20 text-[#0e0e0e] dark:text-white placeholder-[#0e0e0e]/60 dark:placeholder-white/50 focus:outline-none focus:bg-white/20 dark:focus:bg-black/30 focus:border-[#8245ec] dark:focus:border-[#4fc3f7] transition-all shadow-inner
+                    ${errors.name ? "border-red-500" : ""}`}
                 />
                 {/* Error Animation Container */}
-                <div className="h-4 mt-1"> 
+                <div className="h-4 mt-0.5"> 
                   {errors.name && (
                     <span className="text-red-500 text-xs font-bold ml-1 animate-pulse">
                       {errors.name.message}
@@ -149,10 +191,10 @@ const Contact = () => {
                   })}
                   type="email"
                   placeholder="Your Email"
-                  className={`w-full p-3 text-base rounded-md bg-[#e8e2fd] text-[#3b2e68] border-2 placeholder-[#2d2b2b]/70 focus:outline-none focus:border-[#8245ec] transition-colors
-                    ${errors.email ? "border-red-500" : "border-[#9f86f9]"}`}
+                  className={`w-full p-2.5 text-sm rounded-md bg-white/10 dark:bg-black/20 backdrop-blur-md border-2 border-white/40 dark:border-white/20 text-[#0e0e0e] dark:text-white placeholder-[#0e0e0e]/60 dark:placeholder-white/50 focus:outline-none focus:bg-white/20 dark:focus:bg-black/30 focus:border-[#8245ec] dark:focus:border-[#4fc3f7] transition-all shadow-inner
+                    ${errors.email ? "border-red-500" : ""}`}
                 />
-                <div className="h-4 mt-1">
+                <div className="h-4 mt-0.5">
                   {errors.email && (
                     <span className="text-red-500 text-xs font-bold ml-1 animate-pulse">
                       {errors.email.message}
@@ -167,10 +209,10 @@ const Contact = () => {
                   {...register("subject", { required: "Subject is required" })}
                   type="text"
                   placeholder="Subject"
-                  className={`w-full p-3 text-base rounded-md bg-[#e8e2fd] text-[#3b2e68] border-2 placeholder-[#2d2b2b]/70 focus:outline-none focus:border-[#8245ec] transition-colors
-                    ${errors.subject ? "border-red-500" : "border-[#9f86f9]"}`}
+                  className={`w-full p-2.5 text-sm rounded-md bg-white/10 dark:bg-black/20 backdrop-blur-md border-2 border-white/40 dark:border-white/20 text-[#0e0e0e] dark:text-white placeholder-[#0e0e0e]/60 dark:placeholder-white/50 focus:outline-none focus:bg-white/20 dark:focus:bg-black/30 focus:border-[#8245ec] dark:focus:border-[#4fc3f7] transition-all shadow-inner
+                    ${errors.subject ? "border-red-500" : ""}`}
                 />
-                <div className="h-4 mt-1">
+                <div className="h-4 mt-0.5">
                   {errors.subject && (
                     <span className="text-red-500 text-xs font-bold ml-1 animate-pulse">
                       {errors.subject.message}
@@ -184,11 +226,11 @@ const Contact = () => {
                 <textarea
                   {...register("message", { required: "Message is required" })}
                   placeholder="Message"
-                  rows="4"
-                  className={`w-full p-3 text-base rounded-md bg-[#e8e2fd] text-[#3b2e68] border-2 placeholder-[#2d2b2b]/70 focus:outline-none focus:border-[#8245ec] transition-colors resize-none
-                    ${errors.message ? "border-red-500" : "border-[#9f86f9]"}`}
+                  rows="3"
+                  className={`w-full p-2.5 text-sm rounded-md bg-white/10 dark:bg-black/20 backdrop-blur-md border-2 border-white/40 dark:border-white/20 text-[#0e0e0e] dark:text-white placeholder-[#0e0e0e]/60 dark:placeholder-white/50 focus:outline-none focus:bg-white/20 dark:focus:bg-black/30 focus:border-[#8245ec] dark:focus:border-[#4fc3f7] transition-all shadow-inner resize-none
+                    ${errors.message ? "border-red-500" : ""}`}
                 ></textarea>
-                <div className="h-4 mt-1">
+                <div className="h-4 mt-0.5">
                   {errors.message && (
                     <span className="text-red-500 text-xs font-bold ml-1 animate-pulse">
                       {errors.message.message}
@@ -211,7 +253,7 @@ const Contact = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className={`w-full py-3 mt-2 text-white font-bold tracking-wide rounded-full transition-all duration-300 shadow-lg transform active:scale-95
+                className={`w-full sm:w-auto sm:min-w-[200px] px-8 py-2.5 mt-2 self-center text-white font-bold tracking-wide rounded-full transition-all duration-300 shadow-lg transform active:scale-95
                   ${isSubmitting
                     ? 'bg-gray-400 cursor-not-allowed opacity-50'
                     : 'bg-linear-to-r from-[#8245ec] to-[#4fc3f7] hover:opacity-90 hover:shadow-purple-500/25'
@@ -221,6 +263,7 @@ const Contact = () => {
               </button>
             </form>
           )}
+          </div>
         </div>
       </div>
     </section>

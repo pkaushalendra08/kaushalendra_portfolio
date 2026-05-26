@@ -160,7 +160,7 @@ const Navbar = ({ theme, toggleTheme }) => {
             </TooltipContent>
           </Tooltip>
 
-          <Tooltip>
+          {/* <Tooltip>
             <TooltipTrigger asChild>
               <span>
                 <SocialLink
@@ -173,7 +173,7 @@ const Navbar = ({ theme, toggleTheme }) => {
             <TooltipContent>
               <p>X(Twitter)</p>
             </TooltipContent>
-          </Tooltip>
+          </Tooltip> */}
         </div>
 
         {/* Mobile Toggle */}
@@ -222,11 +222,11 @@ const Navbar = ({ theme, toggleTheme }) => {
                 icon={FaLinkedinIn}
                 hoverColorClass="hover:bg-[#0A66C2]"
               />
-              <SocialLink
+              {/* <SocialLink
                 href="https://x.com/pkaushalendra08"
                 icon={FaXTwitter}
                 hoverColorClass="hover:bg-[#000000]"
-              />
+              /> */}
             </div>
           </ul>
         </div>

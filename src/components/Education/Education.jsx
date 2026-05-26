@@ -12,7 +12,7 @@ const educationData = [
     institution: "ABES Institute of Technology, Ghaziabad",
     duration: "2022 — 2026", 
     location: "Ghaziabad, India",
-    details: "Completed. Specializing in Full Stack Development(MERN, NextJS)",
+    details: "Completed with focus on Full Stack Development and modern web technologies.(MERN, NextJS)",
     tags: [""],
     isCurrent: false, 
   },

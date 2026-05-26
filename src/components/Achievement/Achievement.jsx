@@ -22,14 +22,14 @@ const ACHIEVEMENTS_DATA = [
         ],
         content: {
             problem: "Enterprises running mixed OS environments (Windows, Ubuntu, CentOS) struggle with manual security hardening. The lack of a centralized tool to enforce CIS Benchmarks leads to configuration drift, security gaps, and failed audits.",
-            solution: "We as 'Team SentinelX', developed a unified security suite that automates system hardening. It intelligently detects the OS, applies 100+ security parameters (CIS Level 1 & 2), generates legally compliant PDF audit reports, and features a failsafe rollback engine.",
-            contribution: "As the Full Stack Developer, I was responsible for Frontend, and architected the communication bridge between the ReactJS frontend and the Golang/Wails backend. I executed the GUI to visualize kernel-level script progress instantly. I also designed the 'One-Click Rollback' state management system.",
+            solution: "Team SentinelX developed, developed a unified security suite that automates system hardening. It intelligently detects the OS, applies 100+ security parameters (CIS Level 1 & 2), generates legally compliant PDF audit reports, and features a failsafe rollback engine.",
+            contribution: "As the Full Stack Developer, I was responsible for Frontend, and architected the communication bridge between the ReactJS frontend and the Golang/Wails backend. Developed the GUI to visualize kernel-level script progress instantly. I also designed the 'One-Click Rollback' state management system.",
             features: [
                 "Intelligent OS Detection",
                 "CIS Benchmark Compliance",
                 "Cross-Platform Support (Windows/Linux)",
                 "One-Click Rollback Engine",
-                "Detailed Audit & Compliance Reports(pdf)",
+                "Detailed Audit & Compliance PDF Reports",
                 "Dual Interface (GUI & CLI)",
                 "Customizable Hardening Profiles (Basic/Moderate/Strict)",
                 "Real-time Execution",

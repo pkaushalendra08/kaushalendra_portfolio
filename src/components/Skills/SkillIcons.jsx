@@ -39,6 +39,6 @@ export const SkillIcons = {
   C:<SiC className="text-[#A8B9CC]"/>,
   "C++": < SiCplusplus className="text-[#00599C]"/>,
   Python:<SiPython className="text-[#3776AB]"/>,
-  "Java Basics":<FaJava className="text-[#007396]" />,
+  
 
 };

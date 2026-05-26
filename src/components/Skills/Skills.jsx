@@ -24,12 +24,11 @@ const skillData = {
     { name: "Socket.io" },
     { name: "MySQL" },
   ],
-  "Programming Language": [
-    { name: "C" },
-    { name: "C++" },
-    { name: "Python" },
-    { name: "Java Basics" },
-  ],
+  // "Programming Language": [
+  //   { name: "C" },
+  //   { name: "C++" },
+  //   { name: "Python" },
+  // ],
   Tools: [
     { name: "VS Code" },
     { name: "Postman" },

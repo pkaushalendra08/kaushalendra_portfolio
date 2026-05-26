@@ -23,16 +23,7 @@ const Footer = () => {
             </p>
         </div>
 
-        {/* 2. Email Link */}
-        <a 
-          href="mailto:pkaushalendra08@gmail.com" 
-          className="group flex items-center gap-2 px-4 py-1 rounded-full bg-white/5 border border-white/10 hover:border-purple-500/50 transition-colors"
-        >
-          <MdEmail className="text-purple-500 group-hover:scale-110 transition-transform" size={16} />
-          <span className="text-xs text-gray-300 group-hover:text-white font-medium tracking-wide">
-            pkaushalendra08@gmail.com
-          </span>
-        </a>
+        
 
         {/* 3. Copyright */}
         <div className="w-full border-t border-white/5 mt-2 pt-3 text-center">

@@ -22,7 +22,7 @@ const About = () => {
   return (
     <section
       id="about"
-      className="relative w-full pt-20 md:pt-28 lg:pt-34 pb-6 md:pb-14 overflow-hidden"
+      className="relative w-full pt-20 md:pt-28 lg:pt-30 pb-6 md:pb-14 overflow-hidden"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="relative z-10 flex flex-col-reverse md:flex-row justify-between items-center gap-10 md:gap-4">
@@ -33,7 +33,7 @@ const About = () => {
             data-aos-duration="800"
             className="w-full md:w-[60%] lg:w-[65%] text-center md:text-left"
           >
-            <h1 className="text-lg sm:text-2xl md:text-3xl font-bold text-[#19161d] dark:text-[#e9d7fe] mb-2 leading-tight">
+            <h1 className="text-lg sm:text-2xl md:text-2xl font-bold text-[#19161d] dark:text-[#e9d7fe] mb-2 leading-tight">
               Hello, I am
             </h1>
 
@@ -47,19 +47,19 @@ const About = () => {
             </h2>
 
             <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold mb-6 text-[#5726b9] dark:text-[#74c0fc] leading-snug">
-              I am a{" "}
+              {""}
               <span className="text-[#25162d] dark:text-[#f0f1fa] font-serif block sm:inline-block">
                 <FlipWords words={words} duration="2000" />
               </span>
             </h3>
 
-            <p className="text-sm sm:text-base md:text-lg text-[#1f2024] dark:text-[#abb0ca] mb-8 leading-relaxed max-w-2xl mx-auto md:mx-0 text-justify">
-              I’m a passionate <b>Full-Stack Developer</b> skilled in
-              <b>React, Next.js, TypeScript, and the MERN stack</b>, with a strong focus on building scalable, high-performance, and user-friendly web applications.
-              I enjoy creating responsive interfaces, optimizing performance and SEO, and developing clean full-stack solutions.
-              I’m also the <b className="text-[#8245ec]">
-                Smart India Hackathon 2025 National Winner</b>, where my team solved a real-world problem statement provided by{" "}
-              <b>National Technical Research Organisation (NTRO), Govt. of India</b>.
+            <p className="text-sm sm:text-base md:text-base text-[#1f2024] dark:text-[#abb0ca] mb-8 leading-relaxed max-w-2xl mx-auto md:mx-0 text-justify">
+
+              Full Stack Developer skilled in React.js, Next.js, TypeScript, Node.js, and the MERN stack, with hands-on experience building scalable and high-performance web applications.
+              Focused on responsive UI, API integrations, performance optimization, and modern full-stack development. {" "}
+              <b className="text-[#8245ec]">
+                Smart India Hackathon 2025 National Winner</b> for solving a real-world cybersecurity problem statement provided by <b>National Technical Research Organisation (NTRO), Govt. of India</b>.
+
             </p>
 
             {/* Buttons */}

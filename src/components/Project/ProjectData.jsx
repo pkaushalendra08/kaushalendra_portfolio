@@ -5,7 +5,7 @@ const projectData = [
     id: 1,
     priority: 1,
     title: "MeetIQ - AI Powered Smart Meeting Assistant",
-    description: "A next-gen video platform featuring a voice-activated AI assistant that delivers real-time transcription and context-aware meeting insights on command.",
+    description: "AI-powered meeting platform with real-time transcription, context-aware Q&A, and voice-triggered AI interactions using Gemini and Stream SDK.",
     longDescription: "MeetIQ revolutionizes virtual meetings by integrating a passive AI agent directly into the call. Built with Stream SDK for low-latency video and Google Gemini for intelligence, the assistant listens silently and only activates when addressed ('Hey Assistant'). It provides real-time transcription, answers questions based on meeting context, and features a responsive, glassmorphic UI. The system solves common AI delays with optimistic UI updates and efficient context management.",
     images: [
       "/projects/meetiq/meetiq.png",
