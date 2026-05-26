@@ -9,8 +9,8 @@ import OfflineIndicator from "@/components/OfflineIndicator";
 const jetbrainsMono = JetBrains_Mono({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Kaushalendra Pratap",
-  description: "Portfolio of Kaushalendra Pratap.",
+  title: "Kaushalendra Pratap | Portfolio",
+  description: "Full Stack Developer skilled in React.js, Next.js, TypeScript, Node.js, and the MERN stack. Smart India Hackathon 2025 National Winner building scalable web applications, AI-powered solutions, and modern user-focused experiences.",
   icons: {
     icon: "/assets/profile_circle.png",
   },
