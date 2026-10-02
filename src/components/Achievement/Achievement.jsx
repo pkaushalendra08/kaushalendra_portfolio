@@ -41,11 +41,13 @@ const ACHIEVEMENTS_DATA = [
             { icon: Award, text: "Awarded by AICTE Chairman", color: "purple" },
         ],
         images: [
+            "https://res.cloudinary.com/drnyfpkm1/image/upload/v1790919456/KaushalendraPratap_SIHWinner_dvoi87.jpg",
             "https://res.cloudinary.com/drnyfpkm1/image/upload/f_auto,q_auto/v1768733675/SIHWIn_cyenyt.jpg",
             "https://res.cloudinary.com/drnyfpkm1/image/upload/f_auto,q_auto/v1768733649/SIHpresen_ounwku.jpg",
             "https://res.cloudinary.com/drnyfpkm1/image/upload/f_auto,q_auto/v1768733641/SIHpartici_w19wg9.jpg",
             "https://res.cloudinary.com/drnyfpkm1/image/upload/f_auto,q_auto/v1768733531/SIHstandee_pyqhjq.jpg",
-            "https://res.cloudinary.com/drnyfpkm1/image/upload/f_auto,q_auto/v1768733481/sihID_bhlwxr.jpg"
+            "https://res.cloudinary.com/drnyfpkm1/image/upload/f_auto,q_auto/v1768733481/sihID_bhlwxr.jpg",
+
         ],
         links: [
             { text: "My Winning Post(5K+ Impressions)", url: "https://www.linkedin.com/feed/update/urn:li:activity:7404724182564937729/", icon: FaLinkedin },

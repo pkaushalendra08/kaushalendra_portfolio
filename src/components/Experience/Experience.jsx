@@ -38,6 +38,15 @@ const Experience = () => {
       skills: ["ReactJS", "NextJS", "TailwindCSS", "Typescript", "RestAPIs", "NodeJs", "Fastify", "MongoDB"],
       letterLink: ""
     },
+    {
+      role: "AI Engineer",
+      company: "BizgenixAI Private Limited",
+      duration: "Oct 2026 - present",
+      location: "Ahmedabad, Gujarat",
+      description: "AI work",
+      skills: [],
+      letterLink: ""
+    },
   ];
 
   const orderedExperiences = [...experiences].reverse();
